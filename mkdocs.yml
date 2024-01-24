@@ -1,4 +1,6 @@
 site_name: CCnocc's Blog
+site_url: https://zjuccnocc.github.io/
+site_author: ccnocc
 nav:
   - Home:
     - index.md
