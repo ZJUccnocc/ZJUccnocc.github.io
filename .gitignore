@@ -1,17 +1,11 @@
 ### C ###
 
-*.c
 *.out
-*.cpp
-*.py
 .DS_Store
 
 .obsidian/
 .vscode/
 .idea/
-code/
-codes/
-bucket_list/README.md
 venv/
 
 # Prerequisites
