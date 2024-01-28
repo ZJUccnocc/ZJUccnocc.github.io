@@ -1,6 +1,47 @@
 site_name: CCnocc Blog
 site_url: https://zjuccnocc.github.io/
 site_author: 吴梓聪(CCnocc)
+
+nav:
+  - Home:
+    - index.md
+    - about: "./Home/about.md"
+    - friend: "./Home/friend.md"
+  - CS Course:
+    - ./CS Course/index.md
+    - 大学计算机基础:
+      - python学习笔记: "./CS Course/大学计算机基础（已绝版）/python学习笔记.md"
+      - 大学计算机基础易错点清单: "./CS Course/大学计算机基础（已绝版）/大学计算机基础易错点清单.md"
+    - 计算机系统:
+      # - 计算机系统Ⅰ:
+      #     - 实验部分:
+      #         - Lab1: 
+      #         - Lab2: 
+      - 计算机系统Ⅱ:
+        - 实验部分:
+          - Lab0: "./CS Course/计算机系统/计算机系统2/实验部分/Lab0/Lab5实验报告.md"
+  - General Course:
+      - ./General Course/index.md
+      - 大学英语:
+        - 作文:
+          - Childhood Memories: "./General Course/大学英语/大学英语作文-Childhood-Memories.md"
+          - My Winter Break: "./General Course/大学英语/大学英语作文-My-Winter-Break.md"
+        - 读书笔记:
+          - 在彼处: "./General Course/大学英语/读书笔记-在彼处.md"
+      - 数码摄影基础:
+        - 作品赏析:
+          - 第一次摄影作品: "./General Course/数码摄影基础/《数码摄影基础》第一次摄影作品.md"
+          - 拍摄照片赏析: "./General Course/数码摄影基础/《数码摄影基础》拍摄照片赏析.md"
+          - 摄影作品赏析: "./General Course/数码摄影基础/《数码摄影基础》摄影作品赏析.md"
+        - 实验报告:
+          - 数码摄影基础-实验报告: "./General Course/数码摄影基础/《数码摄影基础》实验报告.md"
+      - 中国近现代史纲要:
+        - 论文《代际鸿沟与交流失位》: "./General Course/中国近代史纲要/《中国近现代史纲要》代际鸿沟与交流失位.md"
+        - 展示资料《珍宝岛守卫战》: "./General Course/中国近代史纲要/大致过程.md"
+  - Blog Writeup: 
+      - "./BlogWriteup/Mkdocs使用Writeup.md"
+      - "./BlogWriteup/Hexo使用指南.md"
+
 theme: 
   name: material
   language: zh    
@@ -18,9 +59,32 @@ theme:
     - search.highlight  #搜索词高亮突出显示
     - search.share   #搜索共享
     - header.autohide  #标题自动隐藏
-
   palette:
-    - scheme: default
+    - media: "(prefers-color-scheme: light)" # 浅色
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny-off
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)" # 深色
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    
+  favicon: img/favicon.ico
+  icon: # 一些用到的icon
+    logo: logo
+    previous: fontawesome/solid/angle-left
+    next: fontawesome/solid/angle-right
+    tag:
+      default-tag: fontawesome/solid/tag
+      hardware-tag: fontawesome/solid/microchip
+      software-tag: fontawesome/solid/laptop-code
+
   font:  #字体，false 则阻止从Google加载字体
   # 内置隐私插件自动下载和自托管 Web 字体文件，无需阻止。其他字体使用附加样式表 extra.css 。
     text: Roboto  #常规字体，默认Roboto，正文、标题等，300、400、400i和700
@@ -75,14 +139,12 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
+repo_name: ZJUCCnoccBlogSource # 仓库名称
+repo_url: https://github.com/ZJUccnocc/ZJUccnocc.github.io # 仓库地址
+
 
 plugins:
   - search
 
-nav:
-  - Initialize: 
-
-    - index.md
-
-
-
+extra_css:
+  - css/custom.css
