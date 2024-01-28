@@ -1,10 +1,10 @@
 # Hello world！
 
-It's a simple example edited by CCnocc
+欢迎来到 CCnocc 的博客~
 
-## Chapter 1 
+这里储存了一些本人平时的课堂笔记或是心得以及一部分实验报告。
 
-### 1.1 
+目的是提供给大家交流学习！
 
-#### 1.1.1 
+！！！请勿抄袭！！！
 
