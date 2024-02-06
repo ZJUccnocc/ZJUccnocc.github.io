@@ -1,5 +1,15 @@
 # Mkdocs+Github.io配置Writeup
 
+## 写在前面
+
+本人的mkdocs文档仓库就在https://github.com/ZJUccnocc/ZJUccnocc.github.io
+
+如果喜欢本人的配置文件可以直接去这里copy（这样就可以跳过下文的很多配置内容）。
+
+另外如果第七步的配置还有问题欢迎私信我~
+
+联系方式见：https://zjuccnocc.github.io/Home/about/
+
 ## 第一步 安装Mkdocs
 
 ```shell
