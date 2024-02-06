@@ -6,7 +6,7 @@
 
 如果喜欢本人的配置文件可以直接去这里copy（这样就可以跳过下文的很多配置内容）。
 
-另外如果第七步的配置还有问题欢迎私信我~
+另外如果第七步的github Pages配置还有问题欢迎私信我~
 
 联系方式见：https://zjuccnocc.github.io/Home/about/
 
@@ -328,3 +328,89 @@ INFO    -  Documentation built in 0.09 seconds
 完成后你会在你的 `<my-project>` 目录下看到一个新的名为 `site` 的文件夹，这里面就是你的网页文件。
 
 可以在 `site` 文件夹中看到你原先的md文件被**编译**成了 `index.html` 和 `about/index.html`。所以我们可以将`mkdocs build` 看作是一个编译命令，将我们的 `md文件` 渲染成 `html网页文件` 。
+
+## 第七步 Github Pages部署
+
+参考文献：[利用mkdocs部署静态网页至GitHub pages （相当于做一个个人网站）_mkdocs github pages-CSDN博客](https://blog.csdn.net/m0_63203517/article/details/127019819)
+
+参考文献中存在写的不清楚的地方，我争取在我的Write up中补充完整。
+
+### 创建仓库
+
+在你的Github上创建一个名为 `<你的用户名>.github.io` 的仓库，比如我的仓库就是这样的：![image-20240206134714479](./Mkdocs%E4%BD%BF%E7%94%A8Writeupimg/image-20240206134714479.png)
+
+### 克隆仓库到本地
+
+```
+git clone https://github.com/<你的用户名>/<你的用户名>.github.io.git
+```
+
+注意克隆的位置最好是你熟悉的位置。
+
+### 复制内容
+
+将你之前建好的网页文件夹复制到当前文件夹内（如果你按我的方法来，那么这个文件夹的名字应该就是`<你的用户名>.github.io`）。大概是如下的情况。补充一句，之前第六步的site其实只是为了你本地部署使用的文件，在上传到github pages远程部署的时候并不需要上传，因此这里并不需要复制site文件夹。
+
+![image-20240206135242966](./Mkdocs%E4%BD%BF%E7%94%A8Writeupimg/image-20240206135242966.png)
+
+### 编写Github Workflow
+
+在 `<你的用户名>.github.io` 文件夹下执行：
+
+```shell
+$ mkdir .github
+$ cd .github
+$ mkdir workflows
+$ cd workflows
+```
+
+在workflows文件夹中新建一个文件： `PublishMySite.yml` 
+
+文件内容如下：
+
+```yaml
+name: publish site
+on: # 在什么时候触发工作流
+  push: # 在从本地main分支被push到GitHub仓库时
+    branches:
+      - main
+  pull_request: # 在main分支合并别人提的pr时
+    branches:
+      - main
+jobs: # 工作流的具体内容
+  deploy:
+    runs-on: ubuntu-latest # 创建一个新的云端虚拟机 使用最新Ubuntu系统
+    steps:
+      - uses: actions/checkout@v2 # 先checkout到main分支
+      - uses: actions/setup-python@v2 # 再安装Python3和相关环境
+        with:
+          python-version: 3.x
+      - run: pip install mkdocs-material # 使用pip包管理工具安装mkdocs-material
+      - run: mkdocs gh-deploy --force # 使用mkdocs-material部署gh-pages分支
+```
+
+### 设置github pages
+
+回到github pages。
+
+![image-20240206140103666](./Mkdocs%E4%BD%BF%E7%94%A8Writeupimg/image-20240206140103666.png)
+
+打开workflow的写权限![image-20240206140215146](./Mkdocs%E4%BD%BF%E7%94%A8Writeupimg/image-20240206140215146.png)
+
+![image-20240206140344844](./Mkdocs%E4%BD%BF%E7%94%A8Writeupimg/image-20240206140344844.png)
+
+除了上述这些设置，还可以看看这个界面有没有其他设置和本人的不一样，后续如果出现奇怪的bug可以考虑调整成本人的试试（）
+
+最后再设置一下你部署的文件夹就行啦~
+
+![image-20240206140532795](./Mkdocs%E4%BD%BF%E7%94%A8Writeupimg/image-20240206140532795.png)
+
+不出意外的话你的网页可以在如下图的网址访问啦~
+
+![image-20240206140623346](./Mkdocs%E4%BD%BF%E7%94%A8Writeupimg/image-20240206140623346.png)
+
+## 写在后面
+
+最后，如果还是有出现问题，一般都是github pages部署的问题，欢迎联系本人debug~
+
+联系方式见：https://zjuccnocc.github.io/Home/about/
