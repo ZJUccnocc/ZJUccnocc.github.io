@@ -12,6 +12,20 @@ nav:
     - 大学计算机基础:
       - python学习笔记: CS Course/大学计算机基础（已绝版）/python学习笔记.md
       - 大学计算机基础易错点清单: CS Course/大学计算机基础（已绝版）/大学计算机基础易错点清单.md
+    - 信息安全原理与数理基础:
+      - ./CS Course/信息安全基础与数学原理/index.md
+      - 概率论与数理统计部分:
+        - 学术词汇翻译: CS Course/信息安全基础与数学原理/概统/0翻译.md
+        - 概率论基础: CS Course/信息安全基础与数学原理/概统/1概率论基础.md
+        - 随机变量的基本性质: CS Course/信息安全基础与数学原理/概统/随机变量的性质.md
+        - 概率函数梳理: CS Course/信息安全基础与数学原理/概统/2概率函数梳理.md
+        - 各种各样的分布: CS Course/信息安全基础与数学原理/概统/分布.md
+        - 马尔可夫不等式和切比雪夫不等式: CS Course/信息安全基础与数学原理/概统/3不等式.md
+        - 大数定理: CS Course/信息安全基础与数学原理/概统/4大数定律.md
+        - 估计: CS Course/信息安全基础与数学原理/概统/估计.md
+        - 假设检验: CS Course/信息安全基础与数学原理/概统/假设检验.md
+        - 概率论与数理统计历年题: CS Course/信息安全基础与数学原理/概统/来点实践.md
+        - 中心极限定理: CS Course/信息安全基础与数学原理/概统/中心极限定理.md
     - 计算机系统:
       #  - 计算机系统Ⅰ:
       #      - 实验部分:
@@ -35,6 +49,7 @@ nav:
         - 读书笔记:
           - 在彼处: General Course/大学英语/读书笔记-在彼处.md
           - Never Judge One Only by Academic Success: General Course/大学英语/读书笔记-Never Judge One Only by Academic Success.md
+        - Pre资料: General Course/大学英语/Pre/index.md
       - 数码摄影基础:
         - 作品赏析:
           - 第一次摄影作品: General Course/数码摄影基础/《数码摄影基础》第一次摄影作品.md
@@ -58,7 +73,9 @@ nav:
         - 周杰伦作品中的元素融合与借鉴: General Course/古典与流行音乐鉴赏/周杰伦作品中的元素融合与借鉴.md
         - 音乐会观后感: General Course/古典与流行音乐鉴赏/观民乐团音乐会有感.md
         - 听音配文: General Course/古典与流行音乐鉴赏/听音配文Music 2.md
-      
+      - 博弈论:
+        - 弈论模型汇总与整理: General Course/博弈论/弈论模型汇总与整理.md
+        - 游戏参与和总结: General Course/博弈论/游戏参与和总结.md
   - Blog Writeup: 
       - ./BlogWriteup/Mkdocs使用Writeup.md
       - ./BlogWriteup/Hexo使用指南.md
