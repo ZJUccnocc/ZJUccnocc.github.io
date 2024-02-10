@@ -4,7 +4,7 @@ site_author: 吴梓聪(CCnocc)
 
 nav:
   - Home:
-    - index.md
+    - Hello World!: index.md
     - 关于蒟蒻: Home/about.md
     - 强大的友友们: Home/friend.md
   - CS Course:
@@ -31,8 +31,10 @@ nav:
         - 作文:
           - Childhood Memories: General Course/大学英语/大学英语作文-Childhood-Memories.md
           - My Winter Break: General Course/大学英语/大学英语作文-My-Winter-Break.md
+          - To Make Preparations for the Future Job Market: General Course/大学英语/大学英语作文-To Make Preparations for the Future Job Market.md
         - 读书笔记:
           - 在彼处: General Course/大学英语/读书笔记-在彼处.md
+          - Never Judge One Only by Academic Success: General Course/大学英语/读书笔记-Never Judge One Only by Academic Success.md
       - 数码摄影基础:
         - 作品赏析:
           - 第一次摄影作品: General Course/数码摄影基础/《数码摄影基础》第一次摄影作品.md
@@ -50,6 +52,13 @@ nav:
       - 微积分(甲)Ⅰ&Ⅱ: General Course/微积分/index.md
       - 生物进化导论:
         - 枕头的进化与发展: General Course/生物进化导论/枕头的进化与发展.md
+      - 军事理论:
+        - 中国与邻国的南海争端问题与可行解决方案: General Course/军事理论/中国与邻国的南海争端问题与可行解决方案.md
+      - 古典与流行音乐鉴赏:
+        - 周杰伦作品中的元素融合与借鉴: General Course/古典与流行音乐鉴赏/周杰伦作品中的元素融合与借鉴.md
+        - 音乐会观后感: General Course/古典与流行音乐鉴赏/观民乐团音乐会有感.md
+        - 听音配文: General Course/古典与流行音乐鉴赏/听音配文Music 2.md
+      
   - Blog Writeup: 
       - ./BlogWriteup/Mkdocs使用Writeup.md
       - ./BlogWriteup/Hexo使用指南.md
