@@ -5,72 +5,85 @@ site_author: 吴梓聪(CCnocc)
 nav:
   - Home:
     - index.md
-    - about: "./Home/about.md"
-    - friend: "./Home/friend.md"
+    - 关于蒟蒻: Home/about.md
+    - 强大的友友们: Home/friend.md
   - CS Course:
     - ./CS Course/index.md
     - 大学计算机基础:
-      - python学习笔记: "./CS Course/大学计算机基础（已绝版）/python学习笔记.md"
-      - 大学计算机基础易错点清单: "./CS Course/大学计算机基础（已绝版）/大学计算机基础易错点清单.md"
+      - python学习笔记: CS Course/大学计算机基础（已绝版）/python学习笔记.md
+      - 大学计算机基础易错点清单: CS Course/大学计算机基础（已绝版）/大学计算机基础易错点清单.md
     - 计算机系统:
-      # - 计算机系统Ⅰ:
-      #     - 实验部分:
-      #         - Lab1: 
-      #         - Lab2: 
+      #  - 计算机系统Ⅰ:
+      #      - 实验部分:
+      #          - Lab1
+      #          - Lab2
       - 计算机系统Ⅱ:
         - 实验部分:
-          - Lab0: "./CS Course/计算机系统/计算机系统2/实验部分/Lab0/Lab5实验报告.md"
+          - Lab0: ./CS Course/计算机系统/计算机系统2/实验部分/Lab0/Lab5实验报告.md
+    - Machine Learning:
+      - ./CS Course/Machine Learning/index.md
+      - P1 Welcome: CS Course/Machine Learning/attachments/斯坦福229：机器学习【P1 Welcome】.md
+      - P2 Liner Regression & Gradient Descent: CS Course/Machine Learning/attachments/斯坦福229：机器学习【P2 Liner Regression & Gradient Descent】.md
+      - P3 Locally Weighted & Logiscal Regression: CS Course/Machine Learning/attachments/斯坦福229：机器学习【P3 Locally Weighted & Logiscal Regression】.md
   - General Course:
       - ./General Course/index.md
       - 大学英语:
         - 作文:
-          - Childhood Memories: "./General Course/大学英语/大学英语作文-Childhood-Memories.md"
-          - My Winter Break: "./General Course/大学英语/大学英语作文-My-Winter-Break.md"
+          - Childhood Memories: General Course/大学英语/大学英语作文-Childhood-Memories.md
+          - My Winter Break: General Course/大学英语/大学英语作文-My-Winter-Break.md
         - 读书笔记:
-          - 在彼处: "./General Course/大学英语/读书笔记-在彼处.md"
+          - 在彼处: General Course/大学英语/读书笔记-在彼处.md
       - 数码摄影基础:
         - 作品赏析:
-          - 第一次摄影作品: "./General Course/数码摄影基础/《数码摄影基础》第一次摄影作品.md"
-          - 拍摄照片赏析: "./General Course/数码摄影基础/《数码摄影基础》拍摄照片赏析.md"
-          - 摄影作品赏析: "./General Course/数码摄影基础/《数码摄影基础》摄影作品赏析.md"
+          - 第一次摄影作品: General Course/数码摄影基础/《数码摄影基础》第一次摄影作品.md
+          - 拍摄照片赏析: General Course/数码摄影基础/《数码摄影基础》拍摄照片赏析.md
+          - 摄影作品赏析: General Course/数码摄影基础/《数码摄影基础》摄影作品赏析.md
         - 实验报告:
-          - 数码摄影基础-实验报告: "./General Course/数码摄影基础/《数码摄影基础》实验报告.md"
+          - 数码摄影基础-实验报告1: General Course/数码摄影基础/《数码摄影基础》实验报告.md
+          - 数码摄影基础-实验报告2: General Course/数码摄影基础/实验报告.md
       - 中国近现代史纲要:
-        - 论文《代际鸿沟与交流失位》: "./General Course/中国近代史纲要/《中国近现代史纲要》代际鸿沟与交流失位.md"
-        - 展示资料《珍宝岛守卫战》: "./General Course/中国近代史纲要/大致过程.md"
+        - 论文《代际鸿沟与交流失位》: General Course/中国近现代史纲要/《中国近现代史纲要》代际鸿沟与交流失位.md
+        - 展示资料《珍宝岛守卫战》: General Course/中国近现代史纲要/大致过程.md
+      - 中国改革开放史:
+        - 当代中国的对外贸易、汇率和FDI体制改革历程: General Course/中国改革开放史/当代中国的对外贸易、汇率和FDI体制改革历程.md
+        - 中国改革开放史思考题: General Course/中国改革开放史/中国改革开放史思考题.md
+      - 微积分(甲)Ⅰ&Ⅱ: General Course/微积分/index.md
+      - 生物进化导论:
+        - 枕头的进化与发展: General Course/生物进化导论/枕头的进化与发展.md
   - Blog Writeup: 
-      - "./BlogWriteup/Mkdocs使用Writeup.md"
-      - "./BlogWriteup/Hexo使用指南.md"
+      - ./BlogWriteup/Mkdocs使用Writeup.md
+      - ./BlogWriteup/Hexo使用指南.md
 
 theme: 
   name: material
   language: zh    
   features:  #导航
-    # - navigation.instant  #即时加载 不注释会发生需要多刷新一次才能渲染网页公式
-    - navigation.tracking  #锚点跟踪
-    - navigation.tabs  #导航选项卡
-    - navigation.tabs.sticky  #粘性导航选项卡
-    - navigation.sections  #次级目录在侧边栏中呈现为组，与tabs同存则有2级导航
-    - navigation.expand  #左侧边栏全展开，取消则折叠其他只展开当选
-    - navigation.indexes  #次级索引页，直接将文档附加到章节，提供概览页面，在相应文件夹中创建index.md添加到导航nav开头。不兼容toc.integrate。
+    - content.code.annotate
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.indexes # 次级索引页，直接将文档附加到章节，提供概览页面，在相应文件夹中创建index.md添加到导航nav开头。不兼容toc.integrate。
     - toc.follow   #锚跟随，文章小标题目录侧边栏自动滚动，以便活动锚点始终可见（付费功能）
-    - navigation.top  #返回顶端
-    - search.suggest  #搜索建议，省略回车
     - search.highlight  #搜索词高亮突出显示
     - search.share   #搜索共享
-    - header.autohide  #标题自动隐藏
+    - content.code.annotate # 代码注释，具体不清楚
+    - content.code.copy # 复制代码按钮
+    - content.tabs.link # 链接标签
+    - navigation.footer # 底部导航栏
+    - navigation.path # 导航路径， 目前好像没啥用
+    - navigation.prune # 只构建可见的页面
+    - navigation.tabs # 顶级索引被作为tab
   palette:
     - media: "(prefers-color-scheme: light)" # 浅色
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: teal
+      accent: teal
       toggle:
         icon: material/weather-sunny-off
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)" # 深色
       scheme: slate
       primary: black
-      accent: indigo
+      accent: black
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
@@ -85,18 +98,10 @@ theme:
       hardware-tag: fontawesome/solid/microchip
       software-tag: fontawesome/solid/laptop-code
 
-  font:  #字体，false 则阻止从Google加载字体
-  # 内置隐私插件自动下载和自托管 Web 字体文件，无需阻止。其他字体使用附加样式表 extra.css 。
-    text: Roboto  #常规字体，默认Roboto，正文、标题等，300、400、400i和700
-    code: Roboto Mono  #等宽字体，默认Roboto Mono，代码块，400
-
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/ZJUCCnocc/
-analytics:
-    provider: custom
-    property: G-DYETCPM289
 
 validation:
   nav:
@@ -111,33 +116,48 @@ validation:
 markdown_extensions:
   - toc:
       permalink: true
-      toc_depth: 4
+      toc_depth: 5
+      permalink_title: 点击此处可置顶内容
   - meta
-  - def_list
-  - attr_list
-  - md_in_html
+  - tables # 启用Markdown表格语法。
+  - def_list #支持定义列表的创建。
+  - attr_list #允许在Markdown元素上添加HTML属性。
+  - md_in_html #允许在HTML块内使用Markdown语法。
   - sane_lists
-  - admonition
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.tilde
+  - admonition #支持创建带有标题的特殊块，用于提示、注意事项等。
+  - pymdownx.keys #支持键盘按键的表示。
+  - pymdownx.mark #支持高亮标记文本。
+  - pymdownx.tilde # 支持删除线和下划线文本。
+  - pymdownx.caret  #添加对插入文本和删除文本的支持。
   - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.snippets
+  - pymdownx.details # 支持创建可折叠的详情块（HTML <details> 和 <summary> 标签）。
+  - pymdownx.betterem #改进了强调（斜体和粗体）的解析。
+  - pymdownx.snippets #允许自动包含其他Markdown文件的内容。
   - pymdownx.magiclink
-  - pymdownx.superfences
-  - pymdownx.inlinehilite
-  - pymdownx.emoji:
+  - pymdownx.smartsymbols #自动将某些文本模式转换为符号，如箭头和数学符号。
+  - pymdownx.inlinehilite #允许在文本中直接高亮代码片段。
+  - pymdownx.tabbed: #
+      alternate_style: true
+  - pymdownx.emoji: #通过名称或代码添加表情符号，支持自定义表情生成器。
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.tabbed:
+  - pymdownx.tabbed: #允许创建标签页，用于在同一位置显示不同的内容块。
       alternate_style: true 
-  - pymdownx.tasklist:
+  - pymdownx.tasklist:  #支持任务列表，允许使用自定义复选框。 
       custom_checkbox: true
-  - pymdownx.highlight:
+  - pymdownx.highlight: #改进代码高亮显示，支持行号、行跨度等特性。
       anchor_linenums: true
-  - pymdownx.arithmatex:
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences: #提供更强大的代码块功能，支持自定义围栏（fences）和Mermaid图表。
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.arithmatex:  #提供对数学表达式的支持，允许在Markdown中直接使用LaTeX语法。
       generic: true
+  - markdown.extensions.sane_lists #有序无序列表的一个扩展。
+  - markdown.extensions.wikilinks #支持wiki链接
 
 repo_name: ZJUCCnoccBlogSource # 仓库名称
 repo_url: https://github.com/ZJUccnocc/ZJUccnocc.github.io # 仓库地址
@@ -146,5 +166,25 @@ repo_url: https://github.com/ZJUccnocc/ZJUccnocc.github.io # 仓库地址
 plugins:
   - search
 
+#### most of these are modified form grate Tonycrane ! ####
 extra_css:
-  - css/custom.css
+  - assets/stylesheets/extra.css
+  - assets/stylesheets/counter.css
+  - assets/stylesheets/custom.css
+  - assets/stylesheets/glightbox.min.css
+  - assets/stylesheets/galaxy.css
+  - https://cdn.tonycrane.cc/utils/katex.min.css
+  - https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css
+  - https://cdn.tonycrane.cc/lxgw/lxgwscreen.css
+  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+
+
+extra_javascript:
+  - assets/javascripts/katex.js 
+  - assets/javascripts/mathjax.js
+  - assets/javascripts/fireworks.js
+  - https://cdn.tonycrane.cc/utils/katex.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - assets/javascripts/glightbox.min.js

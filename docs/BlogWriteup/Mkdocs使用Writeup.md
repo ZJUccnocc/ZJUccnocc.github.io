@@ -4,7 +4,7 @@
 
 本人的mkdocs文档仓库就在https://github.com/ZJUccnocc/ZJUccnocc.github.io
 
-如果喜欢本人的配置文件可以直接去这里copy（这样就可以跳过下文的很多配置内容）。
+如果喜欢本人的配置文件可以直接去这里copy（这样就可以跳过下文的很多配置内容，但如果copy请务必标明复制来源！谢谢~）。
 
 另外如果第七步的github Pages配置还有问题欢迎私信我~
 
