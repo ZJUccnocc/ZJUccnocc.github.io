@@ -101,6 +101,13 @@ nav:
       - ./BlogWriteup/index.md
       - Mkdocs+GithubPages: ./BlogWriteup/Mkdocs使用Writeup.md
       - Hexo+服务器: ./BlogWriteup/Hexo使用指南.md
+  - Major Relative:
+    - Major Relative/index.md
+    - 转专业经验帖: Major Relative/转专业经验帖.md
+    - 金融专业确认交流情况: Major Relative/金融专业确认交流情况.md
+    - 信息安全专业确认交流情况: Major Relative/信息安全专业确认交流情况.md
+    - 信息安全专业确认交流情况-二: Major Relative/信息安全专业确认交流情况-二.md
+    
 
 theme: 
   name: material
