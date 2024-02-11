@@ -51,4 +51,13 @@
             <div class="flink-item-desc">TheLastWind</div>
         </a>
     </div>
+    <div class="flink-list-item">
+        <div class="flink-item-icon">
+                ![Alt text](friendimg/xuan.jpg)
+        </div>
+        <a href="https://carameltealatte.github.io" title="CaramelteaLatte O.o." target="_blank">
+            <div class="flink-item-name">CaramelteaLatte O.o.</div>
+            <div class="flink-item-desc">一只破防的SEer</div>
+        </a>
+    </div>
 

@@ -1,14 +1,3 @@
----
-title: Lab3：RV64内核引导实验报告
-date: 2023-11-12 23:13:25
-categories:
-- 大二
-- SYS2
-tags:
-- SYS2
-- Lab report
----
-
 # Lab3：RV64内核引导实验报告
 
 ### 3220103648 吴梓聪
@@ -80,7 +69,7 @@ tags:
 
   在机器上电运行后，硬件会先进行一些基础的初始化任务，比如将CPU的PC移动到内存中的一个叫 Bootloader 的程序段的起始地址。而这个 Bootloader 是操作系统内核运行之前，用于初始化硬件，加载操作系统内核的一个程序段。在我们使用的 RISC-V 架构里，Bootloader 运行在 Machine 模式下。Bootloader 运行完毕后就会把当前模式切换到 S 模式下，随后机器会开始运行 Kernel 。
 
-附赠三个实验指导上的链接（三个都是github上的资源，可能需要科学上网才能打开）：
+附赠三个实验指导上的链接：
 
 - [RISC-V Assembly Programmer's Manual](https://github.com/riscv-non-isa/riscv-asm-manual/blob/master/riscv-asm.md)
 - [RISC-V Unprivileged Spec](https://github.com/riscv/riscv-isa-manual/releases/download/Ratified-IMAFDQC/riscv-spec-20191213.pdf)
@@ -92,13 +81,13 @@ tags:
 
 也就是说为了使得我们千奇百怪的操作系统能够和我们千奇百怪的硬件相匹配，OpenSBI提出了一系列的规范，对Machine模式下的硬件进行了统一的定义，这样一来Supervisor模式下的内核就可以通过这些规范对硬件进行不同的操作。下面这张图清晰的表现了不同模式间的交互方法和交互渠道。
 
-![image-20231105221745223](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20231105221745223.png)
+![image-20240210211114179](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20240210211114179.png)
 
 > 实际上我们在实现SBI的时候发现，其实也是在C函数中使用了一段内联汇编的代码，去执行一个叫ecall的调用标号，这个ecall应该就是openSBI部分给出的与硬件交互的一个接口。
 
 ## 2.3 Makefile
 
-话不多说，先丢[学习链接](https://seisman.github.io/how-to-write-makefile/introduction.html)，跟我一起写Makefile！
+话不多说，先丢[链接](https://seisman.github.io/how-to-write-makefile/introduction.html)，跟我一起写Makefile！
 
 摘要：
 
@@ -176,7 +165,7 @@ clean :
 
 另外再贴一个很有用的东西：
 
-![image-20231111223818840](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20231111223818840.png)
+![image-20240210211119656](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20240210211119656.png) 
 
 ## 2.4 内联汇编
 
@@ -232,7 +221,7 @@ clean :
 
 GNU的ld也就是链接器，用于将多个 `.o` 文件和库文件链接成为可执行文件。在操作系统开发过程中，为了指定程序的内存布局，ld会使用连接脚本 (Link Script) 来控制，在 Linux Kernel 中链接脚本被命名为 vmlinux.lds。
 
-![image-20231112014306158](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20231112014306158.png)
+![image-20240210211130322](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20240210211130322.png)  	
 
 链接脚本中有 `.` 、`*` 两个重要的符号。
 
@@ -455,7 +444,7 @@ void puti(int x) {
 
 ## 3.6 实验结果
 
-![image-20231112030336017](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20231112030336017.png)
+![image-20240210211141982](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20240210211141982.png) 
 
 # 4 思考题
 
@@ -467,7 +456,7 @@ void puti(int x) {
 
 ### 操作
 
-![image-20231112114918140](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20231112114918140.png)
+![image-20240210211147568](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20240210211147568.png) 
 
 整理到一个Excel表格中按地址排序后得到：
 
@@ -503,7 +492,7 @@ void puti(int x) {
 
 ### 操作
 
-![image-20231112195503439](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20231112195503439.png)
+![image-20240210211152012](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20240210211152012.png) 
 
  可以看到特权级别为1，也就是Supervisor级别。
 
@@ -521,19 +510,19 @@ void puti(int x) {
 
 #### text段：
 
-![image-20231112182651571](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20231112182651571.png)
+![image-20240210211154593](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20240210211154593.png)  
 
 #### rodata段
 
 可以看到rodata段里面存放了" ZJU Computer System II\n"这个字符串。
 
-![image-20231112195943106](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20231112195943106.png)
+![image-20240210211157100](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20240210211157100.png)
 
 #### data段和bss段
 
 根据我们前面system.map可以知道这两个段是空的，没有实际上的内容，在gdb中也可以看到：
 
-![image-20231112200119484](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20231112200119484.png)
+![image-20240210211159035](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20240210211159035.png) 
 
 ## 4.4 用汇编代码传递参数
 
@@ -545,15 +534,14 @@ void puti(int x) {
 
 还好学了小白老师的汇编，这道题其实很简单，只需要知道RISC-V是怎么做传递参数的约定的就行。
 
-![A](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/A.png)
+![image-20240210211201661](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20240210211201661.png)
 
 我们给a0设置一个常数，然后再让start_kernal设置一个参数x并在head.S中按照约定做好参数传递即可。
 
 代码实现如下：
 
-![image-20231112190705703](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20231112190705703.png)
-![image-20231112190723839](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20231112190723839.png)
+![image-20240210211209190](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20240210211209190.png) ![image-20240210211204703](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20240210211204703.png) 
 
 最后的输出结果是：
 
-![image-20231112190840780](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20231112190840780.png)
+![image-20240210211216623](./Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8Aimg/image-20240210211216623.png) 

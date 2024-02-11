@@ -1,5 +1,19 @@
+/* 鼠标样式 */
+html,*[cursor-default] {
+  background-color: #f2f2f2;
+  font-size: 16px;
+  cursor: url("https://zhutix.com/wp-content/themes/b2/x1.cur"), auto;
+}
 
+a:hover,*[pointer] {
+  cursor: url("https://zhutix.com/wp-content/themes/b2/x2.cur"), pointer !important;
+}
 
+p,input,pre code,textarea,*[text] {
+  cursor: url(""), text;
+}
+
+/* normal CSS */
 .md-typeset div.arithmatex {
   overflow-y: hidden;
 }
@@ -27,6 +41,7 @@ strong {
   text-shadow: 0.1px 0px;
 }
 
+/* Friend Link Pages CSS */
 .flink-list {
   overflow: auto;
   padding: 10px 10px 0;
