@@ -10,93 +10,129 @@ nav:
   - CS Course:
     - ./CS Course/index.md
     - 计算机科学基础（B）:
-      - CS Course/大学计算机基础（已绝版）/index.md
-      - python学习笔记: CS Course/大学计算机基础（已绝版）/python学习笔记.md
-      - 大学计算机基础易错点清单: CS Course/大学计算机基础（已绝版）/大学计算机基础易错点清单.md
+      - CS Course/DJJ/index.md
+      - python学习笔记: CS Course/DJJ/python学习笔记.md
+      - 大学计算机基础易错点清单: CS Course/DJJ/大学计算机基础易错点清单.md
     - 信息安全原理与数理基础:
-      - ./CS Course/信息安全基础与数学原理/index.md
+      - ./CS Course/XAY/index.md
       - 概率论与数理统计部分:
-        - 学术词汇翻译: CS Course/信息安全基础与数学原理/概统/0翻译.md
-        - 概率论基础: CS Course/信息安全基础与数学原理/概统/1概率论基础.md
-        - 随机变量的基本性质: CS Course/信息安全基础与数学原理/概统/随机变量的性质.md
-        - 概率函数梳理: CS Course/信息安全基础与数学原理/概统/2概率函数梳理.md
-        - 各种各样的分布: CS Course/信息安全基础与数学原理/概统/分布.md
-        - 马尔可夫不等式和切比雪夫不等式: CS Course/信息安全基础与数学原理/概统/3不等式.md
-        - 大数定理: CS Course/信息安全基础与数学原理/概统/4大数定律.md
-        - 估计: CS Course/信息安全基础与数学原理/概统/估计.md
-        - 假设检验: CS Course/信息安全基础与数学原理/概统/假设检验.md
-        - 概率论与数理统计历年题: CS Course/信息安全基础与数学原理/概统/来点实践.md
-        - 中心极限定理: CS Course/信息安全基础与数学原理/概统/中心极限定理.md
+        - 学术词汇翻译: CS Course/XAY/GT/0翻译.md
+        - 概率论基础: CS Course/XAY/GT/1概率论基础.md
+        - 随机变量的基本性质: CS Course/XAY/GT/随机变量的性质.md
+        - 概率函数梳理: CS Course/XAY/GT/2概率函数梳理.md
+        - 各种各样的分布: CS Course/XAY/GT/分布.md
+        - 马尔可夫不等式和切比雪夫不等式: CS Course/XAY/GT/3不等式.md
+        - 大数定理: CS Course/XAY/GT/4大数定律.md
+        - 估计: CS Course/XAY/GT/估计.md
+        - 假设检验: CS Course/XAY/GT/假设检验.md
+        - 概率论与数理统计历年题: CS Course/XAY/GT/来点实践.md
+        - 中心极限定理: CS Course/XAY/GT/中心极限定理.md
     - 计算机系统:
-      - CS Course/计算机系统/index.md
+      - CS Course/SYS/index.md
       - 计算机系统Ⅰ:
         - 实验部分:
-          - Lab0-1: CS Course/计算机系统/计算机系统1/实验报告/Lab0-1实验报告.md
-          - Lab0-2: CS Course/计算机系统/计算机系统1/实验报告/Lab0-2实验报告.md
-          - Lab1: CS Course/计算机系统/计算机系统1/实验报告/Lab1实验报告.md
-          - Lab2: CS Course/计算机系统/计算机系统1/实验报告/Lab2实验报告.md
-          - Lab3: CS Course/计算机系统/计算机系统1/实验报告/Lab3实验报告.md
-          - Lab4-1: CS Course/计算机系统/计算机系统1/实验报告/Lab4-1实验报告.md
-          - Lab4-2: CS Course/计算机系统/计算机系统1/实验报告/Lab4-2实验报告.md
+          - Lab0-1: CS Course/SYS/SYS1/LAB/Lab0-1实验报告.md
+          - Lab0-2: CS Course/SYS/SYS1/LAB/Lab0-2实验报告.md
+          - Lab1: CS Course/SYS/SYS1/LAB/Lab1实验报告.md
+          - Lab2: CS Course/SYS/SYS1/LAB/Lab2实验报告.md
+          - Lab3: CS Course/SYS/SYS1/LAB/Lab3实验报告.md
+          - Lab4-1: CS Course/SYS/SYS1/LAB/Lab4-1实验报告.md
+          - Lab4-2: CS Course/SYS/SYS1/LAB/Lab4-2实验报告.md
+          - Lab5: CS Course/SYS/SYS1/LAB/Lab5实验报告.md
       - 计算机系统Ⅱ:
         - 实验部分:
-          - Lab0: ./CS Course/计算机系统/计算机系统2/实验部分/Lab0/Lab5实验报告.md
-          - Lab1: ./CS Course/计算机系统/计算机系统2/实验部分/Lab1/Lab1 Pipeline.md
-          - Lab2: ./CS Course/计算机系统/计算机系统2/实验部分/Lab2/Lab2 Forwarding 及 AXI4-lite 总线内存模型.md
-          - Lab3: ./CS Course/计算机系统/计算机系统2/实验部分/Lab3/Lab3：RV64内核引导实验报告.md
-          - Lab4: ./CS Course/计算机系统/计算机系统2/实验部分/Lab4/Lab4 RV64 下的时钟中断处理.md
-          - Lab5: ./CS Course/计算机系统/计算机系统2/实验部分/Lab5/Lab5：RV64 内核线程调度.md
-          - Lab6: ./CS Course/计算机系统/计算机系统2/实验部分/Lab6/Lab6：综合实验.md
+          - Lab0: ./CS Course/SYS/SYS2/LAB/Lab0/Lab5实验报告.md
+          - Lab1: ./CS Course/SYS/SYS2/LAB/Lab1/Lab1 Pipeline.md
+          - Lab2: ./CS Course/SYS/SYS2/LAB/Lab2/Lab2 Forwarding 及 AXI4-lite 总线内存模型.md
+          - Lab3: ./CS Course/SYS/SYS2/LAB/Lab3/Lab3：RV64内核引导实验报告.md
+          - Lab4: ./CS Course/SYS/SYS2/LAB/Lab4/Lab4 RV64 下的时钟中断处理.md
+          - Lab5: ./CS Course/SYS/SYS2/LAB/Lab5/Lab5：RV64 内核线程调度.md
+          - Lab6: ./CS Course/SYS/SYS2/LAB/Lab6/Lab6：综合实验.md
     - Machine Learning:
       - ./CS Course/Machine Learning/index.md
       - P1 Welcome: CS Course/Machine Learning/attachments/斯坦福229：机器学习【P1 Welcome】.md
       - P2 Liner Regression & Gradient Descent: CS Course/Machine Learning/attachments/斯坦福229：机器学习【P2 Liner Regression & Gradient Descent】.md
       - P3 Locally Weighted & Logiscal Regression: CS Course/Machine Learning/attachments/斯坦福229：机器学习【P3 Locally Weighted & Logiscal Regression】.md
+    - 技术沟通:
+      - CS Course/TC/index.md
+      - 个人作业:
+        - 个人作业：文献综述: CS Course/TC/attachments/个人作业：文献综述.md
+        - 个人作业：修改意见-1: CS Course/TC/attachments/个人作业：修改意见-1.md
+        - 个人作业：修改意见-2: CS Course/TC/attachments/个人作业：修改意见-2.md
+      - 小组讨论:
+        - 小组讨论1：论文英文特点: CS Course/TC/attachments/小组讨论1：论文英文特点.md
+        - 小组讨论2：论文阅读报告: CS Course/TC/attachments/小组讨论2：论文阅读报告.md
+        - 小组讨论3：论文深入阅读: CS Course/TC/attachments/小组讨论3：论文深入阅读.md
+        - 小组讨论4：探究性写作联系: CS Course/TC/attachments/小组讨论4：探究性写作联系.md
+        - 小组讨论5：评价文献综述: CS Course/TC/attachments/小组讨论5：评价文献综述.md
+        - 小组讨论6：撰写摘要: CS Course/TC/attachments/小组讨论6：撰写摘要.md
+        - 小组讨论7：评价开题报告: CS Course/TC/attachments/小组讨论7：评价开题报告.md
+        - 小组讨论8：评价毕业论文: CS Course/TC/attachments/小组讨论8：评价毕业论文.md
+        - 小组讨论9：可行性分析: CS Course/TC/attachments/小组讨论9：可行性分析.md
+        - 小组讨论10：本科毕业论文实例分析: CS Course/TC/attachments/小组讨论10：本科毕业论文实例分析.md
+        - 小组讨论11：幻灯片问题: CS Course/TC/attachments/小组讨论11：幻灯片问题.md
+        - 小组讨论12：图片搜索: CS Course/TC/attachments/小组讨论12：图片搜索.md
+        - 小组讨论13：图库搜索: CS Course/TC/attachments/小组讨论13：图库搜索.md
+        - 小组讨论14：分析演讲的问题: CS Course/TC/attachments/小组讨论14：分析演讲的问题.md
+      - 小组作业:
+        - 小组作业2：论文阅读: CS Course/TC/attachments/小组作业2：论文阅读.md
   - General Course:
       - ./General Course/index.md
       - 大学英语:
-        - General Course/大学英语/index.md
+        - General Course/ENG/index.md
         - 作文:
-          - Childhood Memories: General Course/大学英语/大学英语作文-Childhood-Memories.md
-          - My Winter Break: General Course/大学英语/大学英语作文-My-Winter-Break.md
-          - To Make Preparations for the Future Job Market: General Course/大学英语/大学英语作文-To Make Preparations for the Future Job Market.md
+          - Childhood Memories: General Course/ENG/大学英语作文-Childhood-Memories.md
+          - My Winter Break: General Course/ENG/大学英语作文-My-Winter-Break.md
+          - To Make Preparations for the Future Job Market: General Course/ENG/大学英语作文-To Make Preparations for the Future Job Market.md
         - 读书笔记:
-          - 在彼处: General Course/大学英语/读书笔记-在彼处.md
-          - Never Judge One Only by Academic Success: General Course/大学英语/读书笔记-Never Judge One Only by Academic Success.md
-        - Pre资料: General Course/大学英语/Pre/index.md
+          - 在彼处: General Course/ENG/读书笔记-在彼处.md
+          - Never Judge One Only by Academic Success: General Course/ENG/读书笔记-Never Judge One Only by Academic Success.md
+        - Pre资料: General Course/ENG/Pre/index.md
+      - 大学物理实验:
+        - General Course/DXWLSY/index.md
+        - 等厚干涉: General Course/DXWLSY/等厚干涉.md
+        - 分光计: General Course/DXWLSY/分光计.md
+        - 光速的测定: General Course/DXWLSY/光速的测定.md
+        - 空气密度测定: General Course/DXWLSY/空气密度测定实验数据处理.md
+        - 密里根油滴实验: General Course/DXWLSY/密里根油滴实验数据处理.md
+        - 碰撞试验: General Course/DXWLSY/碰撞试验.md
+        - 声速的测定: General Course/DXWLSY/声速的测定.md
+        - 杨氏模量实验: General Course/DXWLSY/杨氏模量实验.md
+        - 整流器实验: General Course/DXWLSY/整流器实验.md
+        - 组装万用表: General Course/DXWLSY/组装万用表.md
       - 数码摄影基础:
-        - General Course/数码摄影基础/index.md
+        - General Course/SMSYJC/index.md
         - 作品赏析:
-          - 第一次摄影作品: General Course/数码摄影基础/《数码摄影基础》第一次摄影作品.md
-          - 拍摄照片赏析: General Course/数码摄影基础/《数码摄影基础》拍摄照片赏析.md
-          - 摄影作品赏析: General Course/数码摄影基础/《数码摄影基础》摄影作品赏析.md
+          - 第一次摄影作品: General Course/SMSYJC/《数码摄影基础》第一次摄影作品.md
+          - 拍摄照片赏析: General Course/SMSYJC/《数码摄影基础》拍摄照片赏析.md
+          - 摄影作品赏析: General Course/SMSYJC/《数码摄影基础》摄影作品赏析.md
         - 实验报告:
-          - 数码摄影基础-实验报告1: General Course/数码摄影基础/《数码摄影基础》实验报告.md
-          - 数码摄影基础-实验报告2: General Course/数码摄影基础/实验报告.md
+          - 数码摄影基础-实验报告1: General Course/SMSYJC/《数码摄影基础》实验报告.md
+          - 数码摄影基础-实验报告2: General Course/SMSYJC/实验报告.md
       - 中国近现代史纲要:
-        - General Course/中国近现代史纲要/index.md
-        - 论文《代际鸿沟与交流失位》: General Course/中国近现代史纲要/《中国近现代史纲要》代际鸿沟与交流失位.md
-        - 展示资料《珍宝岛守卫战》: General Course/中国近现代史纲要/大致过程.md
+        - General Course/ZGJXDSGY/index.md
+        - 论文《代际鸿沟与交流失位》: General Course/ZGJXDSGY/《中国近现代史纲要》代际鸿沟与交流失位.md
+        - 展示资料《珍宝岛守卫战》: General Course/ZGJXDSGY/大致过程.md
       - 中国改革开放史:
-        - General Course/中国改革开放史/index.md
-        - 当代中国的对外贸易、汇率和FDI体制改革历程: General Course/中国改革开放史/当代中国的对外贸易、汇率和FDI体制改革历程.md
-        - 中国改革开放史思考题: General Course/中国改革开放史/中国改革开放史思考题.md
-      - 微积分(甲)Ⅰ&Ⅱ: General Course/微积分/index.md
+        - General Course/ZGGGKFS/index.md
+        - 当代中国的对外贸易、汇率和FDI体制改革历程: General Course/ZGGGKFS/当代中国的对外贸易、汇率和FDI体制改革历程.md
+        - 中国改革开放史思考题: General Course/ZGGGKFS/中国改革开放史思考题.md
+      - 微积分(甲)Ⅰ&Ⅱ: General Course/VJF/index.md
       - 生物进化与设计:
-        - General Course/生物进化导论/index.md
-        - 枕头的进化与发展: General Course/生物进化导论/枕头的进化与发展.md
+        - General Course/SWJHDL/index.md
+        - 枕头的进化与发展: General Course/SWJHDL/枕头的进化与发展.md
       - 军事理论:
-        - General Course/军事理论/index.md
-        - 中国与邻国的南海争端问题与可行解决方案: General Course/军事理论/中国与邻国的南海争端问题与可行解决方案.md
+        - General Course/JSLL/index.md
+        - 中国与邻国的南海争端问题与可行解决方案: General Course/JSLL/中国与邻国的南海争端问题与可行解决方案.md
       - 古典与流行音乐鉴赏:
-        - General Course/古典与流行音乐鉴赏/index.md
-        - 周杰伦作品中的元素融合与借鉴: General Course/古典与流行音乐鉴赏/周杰伦作品中的元素融合与借鉴.md
-        - 音乐会观后感: General Course/古典与流行音乐鉴赏/观民乐团音乐会有感.md
-        - 听音配文: General Course/古典与流行音乐鉴赏/听音配文Music 2.md
+        - General Course/GDYLXYYJS/index.md
+        - 周杰伦作品中的元素融合与借鉴: General Course/GDYLXYYJS/周杰伦作品中的元素融合与借鉴.md
+        - 音乐会观后感: General Course/GDYLXYYJS/观民乐团音乐会有感.md
+        - 听音配文: General Course/GDYLXYYJS/听音配文Music 2.md
       - 博弈论基础:
-        - General Course/博弈论/index.md
-        - 弈论模型汇总与整理: General Course/博弈论/弈论模型汇总与整理.md
-        - 游戏参与和总结: General Course/博弈论/游戏参与和总结.md
+        - General Course/BYL/index.md
+        - 弈论模型汇总与整理: General Course/BYL/弈论模型汇总与整理.md
+        - 游戏参与和总结: General Course/BYL/游戏参与和总结.md
   - Blog Writeup: 
       - ./BlogWriteup/index.md
       - Mkdocs+GithubPages: ./BlogWriteup/Mkdocs使用Writeup.md
