@@ -1,11 +1,3 @@
----
-hide:
-    - date
-home: true
-template: home.html
-statistics: true
----
-
 # Hello world！
 
 欢迎来到 CCnocc 的博客~这里储存了一些本人平时的课堂笔记或是心得以及一部分实验报告。
