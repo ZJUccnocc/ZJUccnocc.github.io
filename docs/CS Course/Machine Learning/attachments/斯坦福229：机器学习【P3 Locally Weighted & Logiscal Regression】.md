@@ -173,7 +173,7 @@ $$
 
 $$
 h_\Theta(X)=g(\Theta^TX)=\frac1{1+e^{-\Theta^TX}}\\
-我们定义其中的\ g(x)=\frac1{1+e^{-x}}为逻辑函数
+我们定义其中的\ g(x)=\frac1{1+e^{-x}}为Sigmoid函数
 $$
 
 不难发现这个 $g(x)$ 的图像如下：
@@ -234,8 +234,8 @@ $$
 由于视频中老师并没有给出$\frac{\partial \mathcal{l}(\Theta)}{\partial \Theta_j}$具体的计算过程而只给出了答案，我在下面尝试推导：
 
 $$
-∵h_\Theta(X)=g(\Theta^TX)\\
 \begin{align}
+∵h_\Theta(X)=&g(\Theta^TX)\\
 有\frac{\partial \mathcal l(\Theta)}{\partial \Theta_j}=&
 \frac{\partial \mathcal l(\Theta)}{\partial h_\Theta(X^{(i)})}·
 \frac{\partial h_\Theta(X^{(i)})}{\partial \Theta^TX^{(i)}}·
@@ -244,8 +244,8 @@ $$
 \frac{\partial {g(t)}}{\partial t}·X_j^{(i)}\}\ \ \ (其中\ t=\Theta^TX)\\
 而\frac{\partial {g(t)}}{\partial t}=&\frac{e^{-t}}{(1+e^{-t})^2}=\frac{1}{1+e^{-t}}·(1-\frac{1}{1+e^{-t}})=g(t)·(1-g(t))\\
 =&h_\Theta(X^{(i)})·(1-h_\Theta(X^{(i)}))\\
+∴\frac{\partial \mathcal l(\Theta)}{\partial \Theta_j}=&\sum_{i=1}^m[y^{(i)}-h_\Theta(X^{(i)})]·X_j^{(i)}
 \end{align}\\
-∴\frac{\partial \mathcal l(\Theta)}{\partial \Theta_j}=\sum_{i=1}^m[y^{(i)}-h_\Theta(X^{(i)})]·X_j^{(i)}
 $$
 
 真是一场酣畅淋漓的求导啊！（bushi）接下来我们再代回批量梯度上升的式子可以得到：
@@ -313,7 +313,7 @@ $$
 
 其中的$\nabla_\Theta l$表示矩阵函数 $l$ 对矩阵 $\Theta$ 求导。
 
-而其中的$H∈\Bbb R^{(n+1)×(n+1)} $,叫做Hessian矩阵。Hessian矩阵的特点在于：
+而其中的 $H∈\Bbb R^{(n+1)×(n+1)}$ ,叫做Hessian矩阵。Hessian矩阵的特点在于：
 
 $$
 H_{ij}=\frac{\partial^2l}{\partial\Theta_i\partial\Theta_j}
@@ -323,6 +323,6 @@ $$
 
 ### Quadratic Convergence 二次收敛
 
-牛顿回归算法具有二次收敛的特性。这表示如果在一次迭代中牛顿法的 $\Delta =0.01 $，那么在该点的0.01的范围内一定存在那个最优解。并且你获得的有效位数会在单次迭代中加倍，也就是说下一次迭代的 $\Delta$ 将会达到 $10^{-4}$ 数量级。这就是二次收敛。
+牛顿回归算法具有二次收敛的特性。这表示如果在一次迭代中牛顿法的 $\Delta =0.01$ ，那么在该点的0.01的范围内一定存在那个最优解。并且你获得的有效位数会在单次迭代中加倍，也就是说下一次迭代的 $\Delta$ 将会达到 $10^{-4}$ 数量级。这就是二次收敛。
 
 牛顿法的二次收敛特性也使得牛顿法可以极快的收敛到全局最优解.

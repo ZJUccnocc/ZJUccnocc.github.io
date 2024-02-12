@@ -53,6 +53,7 @@ nav:
       - P1 Welcome: CS Course/Machine Learning/attachments/斯坦福229：机器学习【P1 Welcome】.md
       - P2 Liner Regression & Gradient Descent: CS Course/Machine Learning/attachments/斯坦福229：机器学习【P2 Liner Regression & Gradient Descent】.md
       - P3 Locally Weighted & Logiscal Regression: CS Course/Machine Learning/attachments/斯坦福229：机器学习【P3 Locally Weighted & Logiscal Regression】.md
+      - P4 Perception & Generalized Liner Model: CS Course/Machine Learning/attachments/斯坦福229：机器学习【P4 Perception & Generalized Liner Model】.md
     - 技术沟通:
       - CS Course/TC/index.md
       - 个人作业:
@@ -166,8 +167,8 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)" # 浅色
       scheme: default
-      primary: teal
-      accent: teal
+      primary: amber
+      accent: amber
       toggle:
         icon: material/weather-sunny-off
         name: Switch to dark mode

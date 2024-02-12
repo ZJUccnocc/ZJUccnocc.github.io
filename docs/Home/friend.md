@@ -37,7 +37,7 @@
         <div class="flink-item-icon">
                 ![Alt text](friendimg/maricle.jpg)
         </div>
-        <a href="http://miraclemaster.cn./" title="白塔" target="_blank">
+        <a href="http://miraclemaster.cn" title="白塔" target="_blank">
             <div class="flink-item-name">白塔</div>
             <div class="flink-item-desc">什么都会的一位佬</div>
         </a>
@@ -46,7 +46,7 @@
         <div class="flink-item-icon">
                 ![Alt text](friendimg/zy.jpg)
         </div>
-        <a href="http://miraclemaster.cn./" title="長風" target="_blank">
+        <a href="https://zjulwind.github.io/home/" title="長風" target="_blank">
             <div class="flink-item-name">長風</div>
             <div class="flink-item-desc">TheLastWind</div>
         </a>
