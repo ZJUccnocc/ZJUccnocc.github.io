@@ -1,0 +1,130 @@
+/* 鼠标样式 */
+html,*[cursor-default] {
+  background-color: #f2f2f2;
+  font-size: 16px;
+  cursor: url("https://zhutix.com/wp-content/themes/b2/x1.cur"), auto;
+}
+
+a:hover,*[pointer] {
+  cursor: url("https://zhutix.com/wp-content/themes/b2/x2.cur"), pointer !important;
+}
+
+p,input,pre code,textarea,*[text] {
+  cursor: url(""), text;
+}
+
+/* normal CSS */
+.md-typeset div.arithmatex {
+  overflow-y: hidden;
+}
+
+img {
+  border-radius: 20px;
+  width: 80%;
+}
+
+p:has(img) {
+  margin: 0 auto;
+  text-indent: 0px;
+  text-align: center;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+strong {
+  text-shadow: 0.1px 0px;
+}
+
+/* Friend Link Pages CSS */
+.flink-list {
+  overflow: auto;
+  padding: 10px 10px 0;
+  text-align: center;
+}
+
+
+.flink-list {
+  overflow: auto;
+  padding: 10px 10px 0;
+  text-align: center;
+}
+
+.flink-list-item {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 15px 7px;
+  width: calc(100% / 2 - 15px);
+  height: 90px;
+  border-radius: 8px;
+  line-height: 17px;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  transition: 0.25s;
+}
+
+.flink-item-icon {
+  float: left;
+  overflow: hidden;
+  margin: 15px 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+}
+
+.flink-item-name {
+  padding: 19px 10px 0 0;
+  height: 40px;
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.flink-item-desc {
+  padding: 13px 10px 16px 0;
+  height: 50px;
+  font-size: 0.93em;
+}
+
+.flink-list-item:hover {
+  background-color: rgba(128, 118, 105, .1);
+}
+
+.flink-list-item {
+  width: calc(50% - 15px) !important;
+}
+
+@media screen and (max-width: 1310px) {
+  .flink-list-item {
+    width: calc(100% - 15px) !important;
+  }
+}
+
+@media screen and (max-width: 1219px) {
+  .flink-list-item {
+    width: calc(50% - 15px) !important;
+  }
+}
+
+@media screen and (max-width: 1027px) {
+  .flink-list-item {
+    width: calc(100% - 15px) !important;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .flink-list-item {
+    width: calc(50% - 15px) !important;
+  }
+}
+
+@media screen and (max-width: 692px) {
+  .flink-list-item {
+    width: calc(100% - 15px) !important;
+  }
+}

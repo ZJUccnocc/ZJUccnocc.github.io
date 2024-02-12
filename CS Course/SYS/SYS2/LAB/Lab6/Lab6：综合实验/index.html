@@ -1,0 +1,1966 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="吴梓聪(CCnocc)">
+      
+      
+        <link rel="canonical" href="https://zjuccnocc.github.io/CS%20Course/SYS/SYS2/LAB/Lab6/Lab6%EF%BC%9A%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8C/">
+      
+      
+        <link rel="prev" href="../../Lab5/Lab5%EF%BC%9ARV64%20%E5%86%85%E6%A0%B8%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6/">
+      
+      
+        <link rel="next" href="../../../../../Machine%20Learning/">
+      
+      
+      <link rel="icon" href="../../../../../../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+    
+    
+      
+        <title>Lab6 - CCnocc Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+  
+  
+    
+    
+      
+    
+    
+  
+    
+    
+      
+    
+    
+  
+    
+    
+      
+    
+    
+  
+  
+  <style>.md-tag.md-tag--default-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 80v149.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0l133.5-133.5c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>');}.md-tag.md-tag--hardware-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c-35.3 0-64 28.7-64 64H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40v56H24c-13.3 0-24 10.7-24 24s10.7 24 24 24h40c0 35.3 28.7 64 64 64v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40h56v40c0 13.3 10.7 24 24 24s24-10.7 24-24v-40c35.3 0 64-28.7 64-64h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40v-56h40c13.3 0 24-10.7 24-24s-10.7-24-24-24h-40c0-35.3-28.7-64-64-64V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24c0-13.3-10.7-24-24-24s-24 10.7-24 24v40h-56V24zm-16 104h192c17.7 0 32 14.3 32 32v192c0 17.7-14.3 32-32 32H160c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32zm192 32H160v192h192V160z"/></svg>');}.md-tag.md-tag--software-tag{--md-tag-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 96c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256h-64V96H128v256H64V96zM0 403.2C0 392.6 8.6 384 19.2 384h601.6c10.6 0 19.2 8.6 19.2 19.2 0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zm112-34 48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"/></svg>');}</style>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/counter.css">
+    
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/glightbox.min.css">
+    
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/galaxy.css">
+    
+      <link rel="stylesheet" href="https://cdn.tonycrane.cc/utils/katex.min.css">
+    
+      <link rel="stylesheet" href="https://cdn.tonycrane.cc/jbmono/jetbrainsmono.css">
+    
+      <link rel="stylesheet" href="https://cdn.tonycrane.cc/lxgw/lxgwscreen.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab6" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../../../.." title="CCnocc Blog" class="md-header__button md-logo" aria-label="CCnocc Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CCnocc Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab6
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.11 21.46 2.39 1.73 1.11 3l3.86 3.86L3.34 7l1.77 3.79c.14-.79.39-1.55.83-2.29.06-.14.19-.26.28-.39l1.44 1.44C7.25 10.27 7 11.11 7 12c0 2.76 2.24 5 5 5 .9 0 1.73-.25 2.45-.66l6.39 6.39 1.27-1.27M12 15c-1.66 0-3-1.34-3-3 0-.33.07-.64.17-.94l3.77 3.77c-.3.1-.61.17-.94.17m6.05-6.5c-.42-.72-.95-1.35-1.55-1.86l4.15.36-1.77 3.79c-.14-.79-.41-1.56-.83-2.29M12 7c2.76 0 5 2.24 5 5 0 .54-.11 1.05-.26 1.54L15 11.78A3.057 3.057 0 0 0 12.22 9l-1.75-1.73c.48-.16.99-.27 1.53-.27m0-2c-.84 0-1.65.15-2.39.42L12 2l2.39 3.42C13.65 5.15 12.84 5 12 5m6.87 8.21L20.64 17l-.4.04-1.99-1.99c.29-.6.51-1.21.62-1.84M12 19c.82 0 1.63-.17 2.37-.44L12 22l-2.41-3.44c.74.27 1.55.44 2.41.44m-6.05-3.5c.42.74.96 1.36 1.55 1.87L3.36 17l1.76-3.77c.14.77.41 1.55.83 2.27Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="black"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ZJUccnocc/ZJUccnocc.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ZJUCCnoccBlogSource
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../.." class="md-tabs__link">
+          
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../../" class="md-tabs__link">
+          
+  
+    
+  
+  CS Course
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../../General%20Course/" class="md-tabs__link">
+          
+  
+    
+  
+  General Course
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../../BlogWriteup/" class="md-tabs__link">
+          
+  
+    
+  
+  Blog Writeup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../../Major%20Relative/" class="md-tabs__link">
+          
+  
+    
+  
+  Major Relative
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../../.." title="CCnocc Blog" class="md-nav__button md-logo" aria-label="CCnocc Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
+  <path d="M3.136,17.387l0,42.932l42.932,21.467l-42.932,-64.399Z" />
+  <path d="M21.91,8l42.933,64.398l-18.775,9.388l-42.932,-64.399l18.774,-9.387Z" style="fill-opacity: 0.5" />
+  <path d="M67.535,17.387l-27.262,18.156l21.878,32.818l5.384,2.691l0,-53.665Z" />
+  <path d="M67.535,17.387l0,53.666l18.774,-9.388l0,-53.665l-18.774,9.387Z" style="fill-opacity: 0.25" />
+</svg>
+
+    </a>
+    CCnocc Blog
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ZJUccnocc/ZJUccnocc.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ZJUCCnoccBlogSource
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../../.." class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    CS Course
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            CS Course
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../../DJJ/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机科学基础（B）
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../../XAY/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    信息安全原理与数理基础
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    计算机系统
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            计算机系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../../../../SYS1/LAB/Lab0-1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    计算机系统Ⅰ
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_3" id="__nav_2_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机系统Ⅱ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            计算机系统Ⅱ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_3_1" id="__nav_2_4_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验部分
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_4_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            实验部分
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab0/Lab5%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab1/Lab1%20Pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab2/Lab2%20Forwarding%20%E5%8F%8A%20AXI4-lite%20%E6%80%BB%E7%BA%BF%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab3/Lab3%EF%BC%9ARV64%E5%86%85%E6%A0%B8%E5%BC%95%E5%AF%BC%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab4/Lab4%20RV64%20%E4%B8%8B%E7%9A%84%E6%97%B6%E9%92%9F%E4%B8%AD%E6%96%AD%E5%A4%84%E7%90%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Lab5/Lab5%EF%BC%9ARV64%20%E5%86%85%E6%A0%B8%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lab5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Lab6
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Lab6
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3220103648" class="md-nav__link">
+    <span class="md-ellipsis">
+      3220103648 吴梓聪
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../../Machine%20Learning/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../../TC/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    技术沟通
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../../../General%20Course/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    General Course
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../../../BlogWriteup/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Blog Writeup
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../../../../../Major%20Relative/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Major Relative
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3220103648" class="md-nav__link">
+    <span class="md-ellipsis">
+      3220103648 吴梓聪
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="lab6">Lab6：综合实验<a class="headerlink" href="#lab6" title="点击此处可置顶内容">&para;</a></h1>
+<h2 id="3220103648">3220103648 吴梓聪<a class="headerlink" href="#3220103648" title="点击此处可置顶内容">&para;</a></h2>
+<h1 id="1">1 实验目的<a class="headerlink" href="#1" title="点击此处可置顶内容">&para;</a></h1>
+<ul>
+<li>学习 OS 在硬件层面的抽象</li>
+<li>完善自己的 CPU Core，运行起自己编写的 binary 程序</li>
+</ul>
+<h1 id="2">2 实验课上提及的注意事项<a class="headerlink" href="#2" title="点击此处可置顶内容">&para;</a></h1>
+<h2 id="21-csrmodule">2.1 <code>CSRModule</code> 接口<a class="headerlink" href="#21-csrmodule" title="点击此处可置顶内容">&para;</a></h2>
+<p>模仿 <code>Regfile</code> 写</p>
+<h2 id="22">2.2 异常检测<a class="headerlink" href="#22" title="点击此处可置顶内容">&para;</a></h2>
+<p><code>pc_wb</code> 寄存器是写回的地址，也就是当前指令的地址。</p>
+<p><code>valid_wb</code> 表示是否有效，是否与 <code>CSR</code> 相关.</p>
+<p><code>time_int</code> 表示是否有时钟中断</p>
+<p><code>csr_ret[1:0]</code> 表示是否是ret指令，如果是 <code>sret</code> 则 <code>csr_ret[0] == 1</code> ，如果是 <code>mret</code> 则 <code>csr_ret[1] == 1</code> ，否则就都是0。</p>
+<p><code>except_commit</code> 里面是三条线，分别是 <code>epc</code> ，<code>ecause</code> ，<code>etval</code> 三个寄存器。</p>
+<p><code>priv[1:0]</code> 表示当前的特权态，3~0分别是MHSU四个态。</p>
+<p><code>switch_mode</code> 表示是否需要切换状态，有异常或者中断的时候会要切换状态。</p>
+<p><code>pc_csr</code> 表示如果要切换状态的话你切换的目标地址。</p>
+<p>如果要 <code>switch_mode</code> 了就把五个街段寄存器内的指令全部 <code>flush</code> 掉，将pc寄存器更新为跳转的目标地址。</p>
+<ol>
+<li>
+<p>首先需要再阶段中间检查是否有异常中断的发生。
+   在每一个部分增加一个检查模块（虽然我们只检查 <code>ecall</code> 的异常），检查是否有异常产生。如果有异常就记录下当前的pc，cause，value。</p>
+</li>
+<li>
+<p>异常检测之后需要在阶段间进行传递。</p>
+</li>
+</ol>
+<p>将之前记录下来的三个值存进对应的异常中间寄存器。而二路选择器是用来选择应该处理哪一个阶段的异常，具体应该是处理这条指令在越早阶段出现的异常。如果这个指令的前几个阶段没有异常，我们才会用这个阶段的。</p>
+<ol start="3">
+<li>将异常指令的一些控制信号给清零</li>
+</ol>
+<p>指令发生异常之后，还要将异常指令的一些控制信号给清零，但因为流水线的原因，清零需要在下一个阶段执行，也就是给后面的下一阶段寄存器同步传一个 <code>flush</code> 信号</p>
+<ol start="4">
+<li>特殊情况
+   但这里又会遇到一个问题，就是你如果前一条指令被 <code>stall</code> 了，那么你现在这条指令也会 <code>stall</code> ，那么你的清空就执行到了异常的前一条指令上。这个需要在MEMWB中做更改：</li>
+</ol>
+<p><img alt="image-20240210211557860" src="../Lab6%EF%BC%9A%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8Cimg/image-20240210211557860.png" /></p>
+<ol start="5">
+<li>如果异常发生了，需要关闭内存访问等开关</li>
+</ol>
+<p>除了EXEMEM阶段的写内存信号以外还有PC阶段读内存的信号，像 <code>switch_mode</code> 发生之后读写信号也需要被关掉等等</p>
+<ol start="6">
+<li>异常切换的时候碰上指令正在读内存</li>
+</ol>
+<p>因为在有了总线之后，读内存变成了一个比较漫长的过程，这个时候可能就会发生上述情况。即假如现在总线正在向内存取指令，这时突然发生了时钟中断，时钟中断发生后，我们会将 <code>pc</code> 改为 <code>pc_csr</code> ，但这时下一条从MEM中返回的指令是 <code>old_pc</code> 对应的，而不是跳转之后的。那么这个时候就需要将这个读到的内容舍弃，等待新读到的内容到达。</p>
+<h2 id="23">2.3 异常检测模块<a class="headerlink" href="#23" title="点击此处可置顶内容">&para;</a></h2>
+<p>模块都写好了，只需要连线即可</p>
+<h2 id="24">2.4 仿真<a class="headerlink" href="#24" title="点击此处可置顶内容">&para;</a></h2>
+<p>需要把 <code>clock.c</code> 文件中的time改为0x10000，然后还要把 <code>rand.c</code> 的正常内容注释掉，换成递增。</p>
+<p>然后先在 <code>testcode</code> 里面 <code>make clean</code> ，然后再 <code>make</code> 然后再回到lab6的目录里make得到如下内容：</p>
+<p><img alt="image-20240210211600017" src="../Lab6%EF%BC%9A%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8Cimg/image-20240210211600017.png" /> </p>
+<p>另外有一种方式：<code>make 2&gt; log</code> 可以看到一段文字显示的内容：</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>m
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>m
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>_
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>i
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>n
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>i
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>t
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>p
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>...
+</span></code></pre></div>
+<p>也就是将原先在lab5输出的内容放到这里每一个字母换行一次。还可以在lab6下面找到一个叫log的文件，里面记录了输出的所有记录，包括所有汇编指令，还有现在进行到哪个函数了。</p>
+<h2 id="25">2.5 下板<a class="headerlink" href="#25" title="点击此处可置顶内容">&para;</a></h2>
+<p><code>make board_sim</code> 用于生成下板的代码，完成之后会有很多新的文件产生。然后再接上 <code>make bitstream</code> 就可以得到一份 bit 流文件，后面还有一些配置，可以见实验手册。但是在综合之前还需要配置一下 <code>ip</code> 核，具体操作详见 <a href="https://classroom.zju.edu.cn/livingpage?course_id=54753&amp;sub_id=1027221&amp;tenant_code=112&amp;sub_public=1">zyygg的1:34:33开始的视频教学</a> 或者是 <a href="https://zju-sys.pages.zjusct.io/sys2/sys2-fa23/ipCore/">实验指导</a> </p>
+<h1 id="3">3 实验仿真准备<a class="headerlink" href="#3" title="点击此处可置顶内容">&para;</a></h1>
+<h2 id="31">3.1 环境配置<a class="headerlink" href="#31" title="点击此处可置顶内容">&para;</a></h2>
+<h3 id="311">3.1.1 文件配置<a class="headerlink" href="#311" title="点击此处可置顶内容">&para;</a></h3>
+<p>将lab2的硬件代码全部拷贝到 <code>/submit</code> 文件夹下，并且将需要合并的代码做一个简单的合并。</p>
+<p>将lab5的软件代码全部拷贝到 <code>/testcode/kernel</code> 文件夹下。<code>sbi.c</code> 和 <code>mini_sbi.c</code> 中给出了重复的函数，删去sbi内的部分即可。</p>
+<h3 id="311-label">3.1.1 统一label<a class="headerlink" href="#311-label" title="点击此处可置顶内容">&para;</a></h3>
+<p>将一些出现的 <code>_ekernel</code> 的地方改成 <code>_end</code> 确保不再出现相关的报错。</p>
+<h3 id="312-verilator">3.1.2 更新 <code>Verilator</code><a class="headerlink" href="#312-verilator" title="点击此处可置顶内容">&para;</a></h3>
+<p>首先安装点必要的软件包：</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>perl<span class="w"> </span>python3<span class="w"> </span>make<span class="w"> </span>autoconf<span class="w"> </span>g++<span class="w"> </span>flex<span class="w"> </span>bison<span class="w"> </span>ccache
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libgoogle-perftools-dev<span class="w"> </span>numactl<span class="w"> </span>perl-doc
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libfl-dev
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>zlibc<span class="w"> </span>zlib1g<span class="w"> </span>zlib1g-dev
+</span></code></pre></div>
+<p>然后从 <code>github</code> 获取源文件，准备安装环境</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/verilator/verilator
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>verilator
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>autoconf
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>./configure
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>make
+</span></code></pre></div>
+<p>在一段漫长的编译过程后终于可以开始安装：</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
+</span></code></pre></div>
+<p>最后可以通过指令查看安装情况：</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>verilator<span class="w"> </span>--version
+</span></code></pre></div>
+<h3 id="313-makefile">3.1.3 调整 <code>Makefile</code><a class="headerlink" href="#313-makefile" title="点击此处可置顶内容">&para;</a></h3>
+<ul>
+<li>更改常量</li>
+</ul>
+<div class="language-makefile highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="err">In</span><span class="w"> </span><span class="err">”/lab6/testcode/Makefile“</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="err">-</span><span class="w"> </span><span class="nv">-march</span><span class="o">=</span>rv64i-zicsr
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="err">+</span><span class="w"> </span><span class="err">=</span><span class="nv">march</span><span class="o">=</span>rv64imafd
+</span></code></pre></div>
+<ul>
+<li>便捷化调试</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>In &quot;/lab6/Makefile&quot;
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>verilate:testcode/testcase.elf
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>+     make -C testcode clean
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>+     make -C testcode sim
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  mkdir -p $(DIR_BUILD)
+</span></code></pre></div>
+<p>这样一来只需要在lab6下执行make就可以顺带把软件部分的也重新清空并且编译一次。省时省力小妙招~</p>
+<h2 id="32">3.2 硬件部分代码调整<a class="headerlink" href="#32" title="点击此处可置顶内容">&para;</a></h2>
+<h3 id="320">3.2.0 搬运<a class="headerlink" href="#320" title="点击此处可置顶内容">&para;</a></h3>
+<p>在搬运的过程中还要理解 <code>zjgg</code> 给的代码的变量和自己之前代码变量的相同和不同，而且大部分是看名字猜，只能先搬着，然后慢慢debug，如果有下辈子希望可以有点注释555。</p>
+<h3 id="321-v">3.2.1 <code>.v</code> 文件的升级<a class="headerlink" href="#321-v" title="点击此处可置顶内容">&para;</a></h3>
+<p>因为现在用的是最新的 <code>Verilator</code> ，我们需要改掉一些之前写的不规范的代码，比如位宽对齐问题。（虽然很无脑，但是改了好久...）</p>
+<h3 id="322">3.2.2 循环赋值问题<a class="headerlink" href="#322" title="点击此处可置顶内容">&para;</a></h3>
+<p>我编译着编译着，把位宽还有变量名之类的弱智问题改完之后，就只剩下了两个循环组合逻辑的警告：</p>
+<p><img alt="image-20240210211612203" src="../Lab6%EF%BC%9A%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8Cimg/image-20240210211612203.png" /></p>
+<p>这个bug也算是老熟人了（真的不想再遇到了），说明应该是有在连线上的问题。回头检查了一下数据通路，发现一个问题。可以看到两个问题都在 <code>Memmap</code> 上，而这个模块实际上的作用就是判断访存的地址是属于Mem还是IO，并且对应开启一些使能信号。</p>
+<p><img alt="image-20240210211614401" src="../Lab6%EF%BC%9A%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8Cimg/image-20240210211614401.png" /></p>
+<p>我们可以看到 <code>Axi_lite_Core</code> 在和 <code>Memmap</code> 以及 <code>MemFSM</code> 做交互。而我们写的Core模块输出的信号除了模拟信号以外只有 <code>pc</code> <code>address</code> <code>we_mem</code> <code>wdata_mem</code> <code>wmask_mem</code> <code>re_mem</code> <code>if_request</code> <code>switch_mode</code> <code>time_int</code> 九个信号。</p>
+<p><img alt="image-20240210211617214" src="../Lab6%EF%BC%9A%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8Cimg/image-20240210211617214.png" /></p>
+<p>将其整理后发现 <code>Core</code> 传给 <code>memmap</code> 的信号是<code>we_mem</code> <code>re_mem</code> <code>address</code> ，不难猜测两个使能信号应该问题不大，主要是这个 <code>address</code> 信号。在Lab2中，我们的 <code>address</code> 是ALU的计算结果直接传递到访问内存的过程中，也就是说在EXE阶段之后我们的address就已经传过去了，而不是在MEM阶段。之前这么干的原因主要在于省略访问内存时的⼀拍stall。</p>
+<p>但现在去看 <code>Memmap.v</code> 的内容:</p>
+<p><img alt="image-20240210211619633" src="../Lab6%EF%BC%9A%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8Cimg/image-20240210211619633.png" /></p>
+<p>发现我们报错的两个变量的赋值都是和我们可爱的 <code>address</code> 有关。但实际上 <code>Memmap</code> 这个模块接受计算的 <code>address</code> 应该是在MEM阶段的指令的 <code>address</code> 而不是为了节省 <code>stall</code> 而前递的EXE阶段的 <code>address</code> 。如果传入的是EXE阶段的指令的 <code>address</code> 的话，计算得到的所有结果对应也都是EXE阶段的结果，但是这个又会返回去对MEM及其以后的所有阶段产生影响，也就形成了回环。</p>
+<p>因此我们如果要解决这个 <code>bug</code> 就得把之前lab2的前递代码取缔掉（在不动 TAgg 代码的前提下）。</p>
+<p>我的解决方法是回归MEM阶段的本真，将所有读写内存的操作放回到MEM阶段执行，而不是像Lab2一样提前把一些东西传进总线。具体其实就是改一下和内存交互的那几个信号，将原先与EXE相关的都延迟到MEM即可。</p>
+<p>但这也会需要我们对我们的状态机做出一定更改。为了保障我们做的调整不会影响到我们对指令的读取，我们需要将if_stall延长一拍。</p>
+<h2 id="33">3.3 软件部分代码调整<a class="headerlink" href="#33" title="点击此处可置顶内容">&para;</a></h2>
+<h3 id="331-mathh">3.3.1 根据 <code>math.h</code> 调整<a class="headerlink" href="#331-mathh" title="点击此处可置顶内容">&para;</a></h3>
+<p>将所有软件代码中的乘除模号分别替换为 <code>int_mul()</code> ，<code>int_div()</code> ，<code>int_mod()</code> 三个函数。此处不一一展示了。</p>
+<h1 id="4">4 实验过程<a class="headerlink" href="#4" title="点击此处可置顶内容">&para;</a></h1>
+<h2 id="41-csrmodule">4.1 <code>CSRModule</code><a class="headerlink" href="#41-csrmodule" title="点击此处可置顶内容">&para;</a></h2>
+<p>由于本次实验的目标中要求我们写的CPU可以识别和处理CSR特权级别指令，所以我们需要将这些指令增加到我们可以接受的指令集中，对其进行解码译码，并通过 <code>CSRModelu</code> 进行寄存器的读取和写入。</p>
+<h3 id="411">4.1.1 解码译码<a class="headerlink" href="#411" title="点击此处可置顶内容">&para;</a></h3>
+<p>好的这个时候不得不掏出我们祖传的手册，可以看到六位特权指令的 <code>opcode</code> 都是 <code>1110011</code> <img alt="image-20240210211622871" src="../Lab6%EF%BC%9A%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8Cimg/image-20240210211622871.png" /></p>
+<div class="language-verilog highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">parameter</span><span class="o">:</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">...</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">CSRR</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mh">7</span><span class="mb">&#39;b1110011</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nl">CSRR:</span><span class="k">begin</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="k">case</span><span class="p">(</span><span class="n">funct3</span><span class="p">)</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="mh">3</span><span class="mb">&#39;b000</span><span class="o">:</span><span class="w">  </span><span class="n">decode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">22</span><span class="mb">&#39;b0010</span><span class="n">_1000_0000_0000_0000_0000</span><span class="p">;</span><span class="c1">//mret,sret</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="mh">3</span><span class="mb">&#39;b001</span><span class="o">:</span><span class="w">  </span><span class="n">decode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">22</span><span class="mb">&#39;b0010</span><span class="n">_0000_0000_0000_1000_1000</span><span class="p">;</span><span class="c1">//csrrw</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="mh">3</span><span class="mb">&#39;b010</span><span class="o">:</span><span class="w">  </span><span class="n">decode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">22</span><span class="mb">&#39;b0010</span><span class="n">_0000_0000_0000_1000_1000</span><span class="p">;</span><span class="c1">//csrrs</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="mh">3</span><span class="mb">&#39;b011</span><span class="o">:</span><span class="w">  </span><span class="n">decode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">22</span><span class="mb">&#39;b0010</span><span class="n">_0000_0000_0000_1000_1000</span><span class="p">;</span><span class="c1">//csrrc</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="mh">3</span><span class="mb">&#39;b101</span><span class="o">:</span><span class="w">  </span><span class="n">decode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">22</span><span class="mb">&#39;b0010</span><span class="n">_0111_0000_0000_0100_1000</span><span class="p">;</span><span class="c1">//csrrwi</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">        </span><span class="mh">3</span><span class="mb">&#39;b110</span><span class="o">:</span><span class="w">  </span><span class="n">decode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">22</span><span class="mb">&#39;b0010</span><span class="n">_0111_0000_0000_0100_1000</span><span class="p">;</span><span class="c1">//csrrsi</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="mh">3</span><span class="mb">&#39;b111</span><span class="o">:</span><span class="w">  </span><span class="n">decode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">22</span><span class="mb">&#39;b0010</span><span class="n">_0111_0000_0000_0100_1000</span><span class="p">;</span><span class="c1">//csrrci</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="n">decode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">22</span><span class="mb">&#39;b0000</span><span class="n">_0000_0000_0000_0000_0000</span><span class="p">;</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="k">endcase</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="k">end</span>
+</span></code></pre></div>
+<p>根据数据通路图，我们知道在IDEXE阶段还需要完成对特权寄存器的读操作，那么我们就可以根据我们更多见到的伪指令分为三类，只读不写，只写不读，又读又写。</p>
+<p><strong>只读不写</strong></p>
+<p>形如 <code>csrr &lt;reg&gt;,&lt;priv_reg&gt;</code> 的伪指令的意思是将 <code>&lt;priv_reg&gt;</code> 的值取出来放到 <code>&lt;reg&gt;</code> 中。其真实写法应该是：<code>csrrw &lt;reg&gt;, &lt;priv_reg&gt;, x0</code> 但实际上，如果直接这样执行会导致 <code>&lt;priv_reg&gt;</code> 被 <code>x0</code> 写入，因此我们需要额外对是否写入 <code>&lt;priv_reg&gt;</code> 做判断。</p>
+<div class="language-Verilog highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">assign</span><span class="w"> </span><span class="n">IfCsrOnlyRead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">op_code</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">CSRR</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">inst</span><span class="p">[</span><span class="mh">19</span><span class="o">:</span><span class="w"> </span><span class="mh">15</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">5</span><span class="mb">&#39;b0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mh">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mh">0</span><span class="p">;</span>
+</span></code></pre></div>
+<p><strong>只写不读</strong></p>
+<p>同样，形如 <code>csrw &lt;priv_reg&gt;,&lt;reg&gt;</code> 的伪指令的真实写法应该是：<code>csrrw x0, &lt;priv_reg&gt;, &lt;reg&gt;</code> 。这样除了我们像达成的效果以外还会额外导致 <code>x0</code> 有一个被 <code>&lt;priv_reg&gt;</code> 的尝试，但是因为x0无法被写入，所以这个地方不需要额外操作。</p>
+<p><strong>又读又写</strong></p>
+<p>形如 <code>csrrw &lt;reg0&gt;,&lt;priv_reg&gt;,&lt;reg1&gt;</code> 就是字面意思上的完成将 <code>&lt;priv_reg&gt;</code> 放入 <code>&lt;reg0&gt;</code> ，再将 <code>&lt;reg1&gt;</code>  放入 <code>&lt;priv_reg&gt;</code> 的过程。也不需要做额外的判断。</p>
+<p>对于这三种不带立即数的指令，我们解码译码的时候只需要令 <code>alu_bsel=0</code> 并且 <code>alu_op = ADD</code> 即可保证最后的 <code>alu_result</code> 是我们要的结果。再令 <code>wb_sel=2'b01</code> 保证在写回阶段选择写回  <code>alu_result</code> 。   </p>
+<h3 id="412">4.1.2 模块实现<a class="headerlink" href="#412" title="点击此处可置顶内容">&para;</a></h3>
+<p>根据实验指导，<code>CSRModule</code> 模块应该是在ID阶段和EXE阶段之间，和Reg的位置相同，用来实现提取特权级别的指令。</p>
+<h4 id="4121">4.1.2.1 阶段间寄存器修改<a class="headerlink" href="#4121" title="点击此处可置顶内容">&para;</a></h4>
+<p>为了让这个模块能够正常运行，我们需要在一些阶段间增加传递 <code>IfCsrOnlyRead</code> ，<code>Except</code> 信号，但是因为这个 <code>Except</code> 是之后在异常检测模块使用的，所以我们这里不展开描述，并且这个寄存器实际上也不是增加在阶段间寄存器里的。而这个 <code>IfCsrOnlyRead</code> 在上一节也讲过了，主要是表征这条指令是不是 <code>CSR</code> 指令以及是不是只读的类型。然后这个作为指令的属性，需要用阶段间寄存器，跟着一条指令同步往下传。</p>
+<h4 id="4122-csr_ret">4.1.2.2 <code>csr_ret</code> 指令<a class="headerlink" href="#4122-csr_ret" title="点击此处可置顶内容">&para;</a></h4>
+<p>TAgg 在课上曾提到 <code>csr_ret</code> 是作为判定这个指令是不是 <code>sret</code> 或者 <code>mret</code> 指令，在具体的实现代码中可以看到：</p>
+<div class="language-verilog highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">assign</span><span class="w"> </span><span class="n">s_ret</span><span class="o">=</span><span class="n">csr_ret</span><span class="p">[</span><span class="mh">0</span><span class="p">]</span><span class="o">&amp;~</span><span class="n">s_trap</span><span class="o">&amp;~</span><span class="n">m_trap</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">assign</span><span class="w"> </span><span class="n">m_ret</span><span class="o">=</span><span class="n">csr_ret</span><span class="p">[</span><span class="mh">1</span><span class="p">]</span><span class="o">&amp;~</span><span class="n">s_trap</span><span class="o">&amp;~</span><span class="n">m_trap</span><span class="p">;</span>
+</span></code></pre></div>
+<p><code>csr_ret[0]</code> 表征当前这条指令是不是 <code>sret</code> 指令，<code>csr_ret[1]</code> 表征当前这条指令是不是 <code>mret</code> 指令。所以在传入的时候，我们对 <code>csr_ret</code> 的赋值应该如下：</p>
+<div class="language-verilog highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">assign</span><span class="w"> </span><span class="n">mret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">inst_WB</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">32&#39;h30200073</span><span class="w"> </span><span class="p">)</span><span class="o">?</span><span class="w"> </span><span class="mh">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mh">0</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">assign</span><span class="w"> </span><span class="n">sret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">inst_WB</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">32&#39;h10200073</span><span class="w"> </span><span class="p">)</span><span class="o">?</span><span class="w"> </span><span class="mh">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mh">0</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">csr_ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">mret</span><span class="p">,</span><span class="n">sret</span><span class="p">}</span>
+</span></code></pre></div>
+<h4 id="4123">4.1.2.3 连线结果<a class="headerlink" href="#4123" title="点击此处可置顶内容">&para;</a></h4>
+<div class="language-Verilog highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">    </span><span class="kt">wire</span><span class="w"> </span><span class="n">mret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ME_WB_inst</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">32&#39;h30200073</span><span class="p">)</span><span class="o">?</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="kt">wire</span><span class="w"> </span><span class="n">sret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ME_WB_inst</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">32&#39;h10200073</span><span class="p">)</span><span class="o">?</span><span class="mh">1</span><span class="o">:</span><span class="mh">0</span><span class="p">;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">CSRModule</span><span class="w"> </span><span class="n">csrmodule</span><span class="p">(</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">        </span><span class="p">.</span><span class="n">clk</span><span class="p">(</span><span class="n">clk</span><span class="p">),</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">        </span><span class="p">.</span><span class="n">rst</span><span class="p">(</span><span class="o">~</span><span class="n">rstn</span><span class="p">),</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">        </span><span class="p">.</span><span class="n">csr_we_wb</span><span class="p">(</span><span class="n">ME_WB_IfCsrOnlyRead</span><span class="p">),</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">        </span><span class="p">.</span><span class="n">csr_addr_wb</span><span class="p">(</span><span class="n">ME_WB_inst</span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="w"> </span><span class="mh">20</span><span class="p">]),</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">        </span><span class="p">.</span><span class="n">csr_val_wb</span><span class="p">(</span><span class="n">ME_WB_mem_rdata</span><span class="p">),</span><span class="w">         </span><span class="c1">//.......</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">        </span><span class="p">.</span><span class="n">csr_addr_id</span><span class="p">(</span><span class="n">IF_ID_inst</span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">20</span><span class="p">]),</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">        </span><span class="p">.</span><span class="n">csr_val_id</span><span class="p">(</span><span class="n">csr_val_id</span><span class="p">),</span><span class="w">    </span><span class="c1">// out</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">        </span><span class="p">.</span><span class="n">pc_wb</span><span class="p">(</span><span class="n">ME_WB_pc</span><span class="p">),</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">        </span><span class="p">.</span><span class="n">valid_wb</span><span class="p">(</span><span class="n">ME_WB_valid</span><span class="p">),</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">        </span><span class="p">.</span><span class="n">time_int</span><span class="p">(</span><span class="n">time_int</span><span class="p">),</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">        </span><span class="p">.</span><span class="n">csr_ret</span><span class="p">({</span><span class="n">mret</span><span class="p">,</span><span class="n">sret</span><span class="p">}),</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">        </span><span class="p">.</span><span class="n">except_commit</span><span class="p">(</span><span class="n">ME_WB_except_commit</span><span class="p">),</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">        </span><span class="c1">// out</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">        </span><span class="p">.</span><span class="n">priv</span><span class="p">(</span><span class="n">priv</span><span class="p">),</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">        </span><span class="p">.</span><span class="n">switch_mode</span><span class="p">(</span><span class="n">switch_mode</span><span class="p">),</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">        </span><span class="p">.</span><span class="n">pc_csr</span><span class="p">(</span><span class="n">pc_csr</span><span class="p">),</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">        </span><span class="p">.</span><span class="n">cosim_interrupt</span><span class="p">(</span><span class="n">cosim_interrupt</span><span class="p">),</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">        </span><span class="p">.</span><span class="n">cosim_cause</span><span class="p">(</span><span class="n">cosim_cause</span><span class="p">),</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="w">        </span><span class="p">.</span><span class="n">cosim_csr_info</span><span class="p">(</span><span class="n">cosim_csr_info</span><span class="p">)</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="w">    </span><span class="p">);</span>
+</span></code></pre></div>
+<h2 id="42-exceptexamine">4.2 <code>ExceptExamine</code><a class="headerlink" href="#42-exceptexamine" title="点击此处可置顶内容">&para;</a></h2>
+<p>本实验需要处理的异常指令只有一类—— <code>ecall</code> 指令。通过分析代码可以知道：</p>
+<ul>
+<li>
+<p>检测模块接受外部ID阶段的 <code>inst</code> ，<code>pc</code> ，<code>stall</code> ，<code>flush</code> 等信号。</p>
+</li>
+<li>
+<p>用 <code>InstExamine</code> 检查当前的代码是否是一条异常代码，检测结果会由 <code>InstExamine</code> 模块打包输出。</p>
+</li>
+<li>
+<p>如果有新的异常在当前阶段产生，会将 <code>except_happen_id</code> 置1。</p>
+</li>
+</ul>
+<div class="language-Verilog highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">//先判断这条指令在前几个阶段是否有异常发生，如果有则选择前几个阶段检测到的结果，否则用新的结果</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">assign</span><span class="w"> </span><span class="n">except</span><span class="o">=</span><span class="n">except_id</span><span class="p">.</span><span class="n">except</span><span class="o">?</span><span class="nl">except_id:</span><span class="n">except_new</span><span class="p">;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1">//except_happen_id信号主要用于检测当前阶段是否有产生异常信号</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="k">assign</span><span class="w"> </span><span class="n">except_happen_id</span><span class="o">=</span><span class="n">except_new</span><span class="p">.</span><span class="n">except</span><span class="o">&amp;~</span><span class="n">except_id</span><span class="p">.</span><span class="n">except</span><span class="p">;</span>
+</span></code></pre></div>
+<p>理论上在每一个阶段都需要做一次异常检测，因为不同的异常可能会发生在不同的阶段，但是因为我们只检测一种异常—— <code>ecall</code> 指令，而这个异常只会在ID阶段就可以发现，所以我们在这个实验中只需要一个异常检测，剩下的异常检测可以先不写。</p>
+<p>但是因为最后这个信号需要通过阶段间寄存器传递到WB阶段，在传到WB阶段后再给到 <code>CSRModule</code> ，<code>CSRModule</code> 根据是否有异常来做出对应的反应。所以我们还是需要在阶段间寄存器上做手脚。</p>
+<p>但是因为 <code>IDExceptExamine.sv</code> 中本身自带了一个时序逻辑，所以可以将他看作和ID_EX_Regs阶段间寄存器同级的模块：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>|-----IF------|------ID------|------EX------|------ME------|------WB------|
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>|--------IF_ID_Regs--+--ID_EX_Regs-----EX_ME_Regs-----ME_WB_Regs----------|
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>                     |-IDExceptExam
+</span></code></pre></div>
+<p>因为我们没有在IF阶段对指令进行检查，所以我们需要给 <code>IF_ID_except_commit</code> 赋一个初始值。</p>
+<div class="language-Verilog highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">ExceptStruct</span><span class="o">::</span><span class="n">ExceptPack</span><span class="w"> </span><span class="n">IF_ID_except_commit</span><span class="o">=</span><span class="p">{</span><span class="nl">except:</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b0</span><span class="p">,</span><span class="w"> </span><span class="nl">epc:</span><span class="mh">64</span><span class="mb">&#39;b0</span><span class="p">,</span><span class="w"> </span><span class="nl">ecause:</span><span class="mh">64</span><span class="mb">&#39;b0</span><span class="p">,</span><span class="nl">etval:</span><span class="w"> </span><span class="mh">64</span><span class="mb">&#39;b0</span><span class="p">};</span>
+</span></code></pre></div>
+<p>除此之外还需要在两个阶段间寄存器传递Except结构体。需要注意的是，如果用到结构体需要把文件后缀改成 <code>sv</code> ，并且还要引用结构体的声明文件。</p>
+<h2 id="43-exception">4.3 异常（Exception）处理<a class="headerlink" href="#43-exception" title="点击此处可置顶内容">&para;</a></h2>
+<p>我们常见的异常主要有以下几种情况：</p>
+<ol>
+<li>
+<p>非法指令：在低特权态试图运行高特权态的指令，或者试图操作高特权态才能访问的寄存器。或者一条无法识别的指令或者不支持的指令或者空指令也会出发非法异常。</p>
+</li>
+<li>
+<p><code>ecall</code> 异常：调用 <code>ecall</code> 时，处理器会判定此条指令为异常，并传递此时的一系列异常信息（通过</p>
+</li>
+</ol>
+<p><code>sbi_ecall</code> 函数），并根据 <code>mcause/scause</code> 的值不同去执行不同的异常处理操作。</p>
+<p>判断是否异常的指令已经由心地善良的 TAgg 完成了，我们只需要在 <code>CSRModule</code> 接收到异常信息时对其做出相应的处理方法即可。具体 <code>CSRModule</code> 会发生哪些输出信号的变化呢：</p>
+<ol>
+<li>将 <code>switch_mode</code> 置 <code>1</code> ，告诉流水线要准备切换特权态了。</li>
+<li><code>priv</code> 如果原来为 <code>2'b11</code> (M) 要变为 <code>2'b00</code> (U)，如果是 <code>2'b00</code> (U) 要切换为 <code>2'b11</code> (M) </li>
+<li><code>pc_csr</code> 输出异常指令的 <code>pc</code></li>
+</ol>
+<p>我们要做的是：</p>
+<ol>
+<li>将IF阶段的 <code>pc</code> 切换为 <code>pc_csr</code> </li>
+<li>由于 <code>CSRModule</code> 收到异常信号时，异常指令已经到了WB阶段，其他阶段的指令是异常指令之后的指令，很可能存在一些冲突，所有我们需要将所有阶段间寄存器 <code>flush</code> 掉，在处理完异常后在回到异常指令的pc处执行后续指令。</li>
+</ol>
+<h3 id="431-ifpc">4.3.1 IF阶段pc处理<a class="headerlink" href="#431-ifpc" title="点击此处可置顶内容">&para;</a></h3>
+<div class="language-Verilog highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">always</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">negedge</span><span class="w"> </span><span class="n">rstn</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="o">~</span><span class="n">rstn</span><span class="p">)</span><span class="w"> </span><span class="n">IF_pc</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mh">0</span><span class="p">;</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="o">+</span><span class="w">   </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">switch_mode</span><span class="p">)</span><span class="w"> </span><span class="n">IF_pc</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">pc_csr</span><span class="p">;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="o">~</span><span class="n">pc_stall</span><span class="p">)</span><span class="w"> </span><span class="n">IF_pc</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">npc</span><span class="p">;</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="k">end</span>
+</span></code></pre></div>
+<p>对于 <code>npc</code> 的处理在 <code>mux_PC</code> 组合电路模块下完成。虽然理论上我们也可以把 <code>switch_mode</code> 输入到 <code>Mux_PC</code> 模块下完成对 <code>npc</code> 的选择。</p>
+<h3 id="432-flush">4.3.2 flush处理<a class="headerlink" href="#432-flush" title="点击此处可置顶内容">&para;</a></h3>
+<div class="language-verilog highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">module</span><span class="w"> </span><span class="n">RaceController</span><span class="p">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="p">...</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="o">+</span><span class="w">   </span><span class="k">input</span><span class="w"> </span><span class="n">switch_mode</span><span class="p">,</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="p">...</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="p">}</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="o">-</span><span class="w"> </span><span class="k">assign</span><span class="w"> </span><span class="n">IF_ID_flush</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Control_Hazard_need_flush</span><span class="o">||</span><span class="n">if_stall</span><span class="p">)</span><span class="o">&amp;~</span><span class="n">IF_ID_stall</span><span class="p">;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="o">+</span><span class="w"> </span><span class="k">assign</span><span class="w"> </span><span class="n">IF_ID_flush</span><span class="w"> </span><span class="o">=</span><span class="p">(</span><span class="n">Control_Hazard_need_flush</span><span class="o">||</span><span class="n">if_stall</span><span class="p">)</span><span class="o">&amp;~</span><span class="n">IF_ID_stall</span><span class="o">|</span><span class="n">switch_mode</span><span class="p">;</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="o">-</span><span class="w"> </span><span class="k">assign</span><span class="w"> </span><span class="n">ID_EX_flush</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Control_Hazard_need_flush</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">~</span><span class="n">ID_EX_stall</span><span class="p">;</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="o">+</span><span class="w"> </span><span class="k">assign</span><span class="w"> </span><span class="n">ID_EX_flush</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Control_Hazard_need_flush</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">~</span><span class="n">ID_EX_stall</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">switch_mode</span><span class="p">;</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="o">-</span><span class="w"> </span><span class="k">assign</span><span class="w"> </span><span class="n">EX_ME_flush</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Control_Hazard_need_flush</span><span class="o">&amp;~</span><span class="n">EX_ME_stall</span><span class="o">&amp;</span><span class="n">if_stall</span><span class="p">;</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="o">+</span><span class="w"> </span><span class="k">assign</span><span class="w"> </span><span class="n">EX_ME_flush</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Control_Hazard_need_flush</span><span class="o">&amp;~</span><span class="n">EX_ME_stall</span><span class="o">&amp;</span><span class="n">if_stall</span><span class="o">|</span><span class="n">switch_mode</span><span class="p">;</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="o">-</span><span class="w"> </span><span class="k">assign</span><span class="w"> </span><span class="n">ME_WB_flush</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mem_stall</span><span class="p">;</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="o">+</span><span class="w"> </span><span class="k">assign</span><span class="w"> </span><span class="n">ME_WB_flush</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mem_stall</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">switch_mode</span><span class="p">;</span>
+</span></code></pre></div>
+<p>其实就是在每一个flush信号后面或上一个 <code>switch_mode</code> 信号即可。</p>
+<h2 id="44-interrupt">4.4 中断（Interrupt）处理<a class="headerlink" href="#44-interrupt" title="点击此处可置顶内容">&para;</a></h2>
+<p>同样本实验简化成只需要我们实现时钟中断即可。在Lab5中，我们也已经在软件层面设置了第一次时钟中断到达时 <code>I/O Device</code> 的部分中的 <code>Timer</code> 外设会给 <code>Core</code> 输入一个 <code>time_int</code> 信号来触发硬件层面的时钟中断。</p>
+<p>实际上，当遇到时钟中断时，我们可以把它看成是一个异常的发生，只不过这个异常并不是从流水线CPU内部在执行代码的时候出现，而是由CPU以外的硬件产生的。</p>
+<p>但是这里又有一个需要注意的地方，也就是老师上课时候提到的：异常切换的时候碰上指令正在读内存。因为在有了总线之后，读内存变成了一个比较漫长的过程，这个时候可能就会发生上述情况。但是这个地方有需要分情况讨论：</p>
+<ol>
+<li><code>valid_mem</code> 没有返回，但又有了读指令的需求，这个时候得到的指令就是应该舍弃的。</li>
+<li><code>valid_mem</code> 返回，</li>
+</ol>
+<p>即假如现在总线正在向内存取指令，这时突然发生了时钟中断，时钟中断发生后，我们会将 <code>pc</code> 改为 <code>pc_csr</code> ，但这时下一条从MEM中返回的指令是 <code>old_pc</code> 对应的，而不是跳转之后的。那么这个时候就需要将这个读到的内容舍弃，等待新读到的内容到达。</p>
+<h2 id="45-rdtime">4.5 软件有关 <code>rdtime</code> 指令的修改<a class="headerlink" href="#45-rdtime" title="点击此处可置顶内容">&para;</a></h2>
+<p>如图，因为 <code>rdtime</code> 指令实现太过复杂，TAgg 没有再进一步实现在 <code>S</code> 态下读写 <code>mtime</code> 的办法，所以我们很多在Lab5中涉及到rdtime指令的内容都要重写或者删除。</p>
+<p><img alt="image-20240210211633895" src="../Lab6%EF%BC%9A%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8Cimg/image-20240210211633895.png" /></p>
+<p>具体修改如下：</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1">// &quot;/init/test.c&quot; 直接删完，让他一直while(1)就行</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="o">|</span><span class="kt">void</span><span class="w"> </span><span class="n">test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="o">-</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">record_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="o">|</span><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="o">-</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">present_time</span><span class="p">;</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="o">-</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="n">__asm__</span><span class="w"> </span><span class="k">volatile</span><span class="p">(</span><span class="s">&quot;rdtime %[t]&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="w"> </span><span class="s">&quot;=r&quot;</span><span class="w"> </span><span class="p">(</span><span class="n">present_time</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;memory&quot;</span><span class="p">);</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="o">-</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="n">present_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int_div</span><span class="p">(</span><span class="n">present_time</span><span class="p">,</span><span class="mi">10000000</span><span class="p">);</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="o">-</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">record_time</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">present_time</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="o">-</span><span class="w"> </span><span class="o">|</span><span class="w">           </span><span class="n">record_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">present_time</span><span class="p">;</span><span class="w"> </span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="o">-</span><span class="w"> </span><span class="o">|</span><span class="w">       </span><span class="p">}</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">  </span><span class="o">|</span><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">  </span><span class="o">|</span><span class="p">}</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="c1">// &quot;/kernel/arch/riscv/kernel/trap.c&quot;</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="o">+</span><span class="w"> </span><span class="o">|</span><span class="err">#</span><span class="n">include</span><span class="w"> </span><span class="s">&quot;sbi.h&quot;</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="o">+</span><span class="w"> </span><span class="o">|</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">TIMECLOCK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x30000</span><span class="p">;</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">  </span><span class="o">|</span><span class="p">...</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">  </span><span class="o">|</span><span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="mi">5</span><span class="p">:</span><span class="w"> </span><span class="c1">//Supervisor Mode Timer Interrupt</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="o">-</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="n">clock_set_next_event</span><span class="p">();</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="o">+</span><span class="w"> </span><span class="o">|</span><span class="w">     </span><span class="n">sbi_set_timer</span><span class="p">(</span><span class="n">TIMECLOCK</span><span class="p">);</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">  </span><span class="o">|</span><span class="w">     </span><span class="n">do_timer</span><span class="p">();</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="w">  </span><span class="o">|</span><span class="p">...</span>
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="c1">// &quot;/kernel/arch/riscv/kernel/clock.c &amp;&amp; clock.h &amp;&amp; clock.o&quot; delete</span>
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="c1">// &quot;/kernel/arch/riscv/kernel/head.S&quot;</span>
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="p">...</span>
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="o">-</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="n">rdtime</span><span class="w"> </span><span class="n">a0</span>
+</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a><span class="o">-</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="n">addi</span><span class="w"> </span><span class="n">a0</span><span class="p">,</span><span class="n">a0</span><span class="p">,</span><span class="mh">0x30000</span>
+</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="o">+</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="n">li</span><span class="w"> </span><span class="n">a0</span><span class="p">,</span><span class="w"> </span><span class="mh">0x30000</span><span class="w"> </span>
+</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="o">-</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="n">la</span><span class="w"> </span><span class="n">sp</span><span class="p">,</span><span class="w"> </span><span class="n">_end</span><span class="o">+</span><span class="mh">0x1000</span>
+</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="o">+</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="n">la</span><span class="w"> </span><span class="n">sp</span><span class="p">,</span><span class="w"> </span><span class="n">boot_stack_top</span><span class="o">+</span><span class="mh">0x1000</span>
+</span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a><span class="w">     </span><span class="p">......</span>
+</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="o">+</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="n">boot_stack_top</span><span class="o">:</span>
+</span><span id="__span-17-34"><a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a><span class="o">+</span><span class="w"> </span><span class="o">|</span><span class="w">  </span><span class="p">.</span><span class="n">align</span><span class="w"> </span><span class="mi">4</span>
+</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a><span class="p">...</span>
+</span></code></pre></div>
+<h2 id="46-sbi">4.6 软件有关sbi的修改<a class="headerlink" href="#46-sbi" title="点击此处可置顶内容">&para;</a></h2>
+<p>主要原因是老师又实现了一个mini_sbi，所以有些调用得有点调整。</p>
+<div class="language-asm highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1">// &quot;/kernel/arch/riscv/kernel/head.S&quot;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="na">...</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">     </span><span class="nf">li</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="mi">0x30000</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="err">+</span><span class="w"> </span><span class="err">|</span><span class="w">  </span><span class="nf">li</span><span class="w"> </span><span class="no">a1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="err">+</span><span class="w"> </span><span class="err">|</span><span class="w">  </span><span class="nf">li</span><span class="w"> </span><span class="no">a2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="err">+</span><span class="w"> </span><span class="err">|</span><span class="w">  </span><span class="nf">li</span><span class="w"> </span><span class="no">a3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="err">+</span><span class="w"> </span><span class="err">|</span><span class="w">  </span><span class="nf">li</span><span class="w"> </span><span class="no">a4</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="err">+</span><span class="w"> </span><span class="err">|</span><span class="w">  </span><span class="nf">li</span><span class="w"> </span><span class="no">a5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="err">+</span><span class="w"> </span><span class="err">|</span><span class="w">  </span><span class="nf">li</span><span class="w"> </span><span class="no">a6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="err">+</span><span class="w"> </span><span class="err">|</span><span class="w">  </span><span class="nf">li</span><span class="w"> </span><span class="no">a7</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">     </span><span class="nf">la</span><span class="w"> </span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="no">boot_stack_top</span><span class="err">+</span><span class="mi">0x1000</span>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="err">+</span><span class="w"> </span><span class="err">|</span><span class="w">  </span><span class="nf">ecall</span>
+</span></code></pre></div>
+<h2 id="46">4.6 实验结果<a class="headerlink" href="#46" title="点击此处可置顶内容">&para;</a></h2>
+<p><img alt="image-20240210211637850" src="../Lab6%EF%BC%9A%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8Cimg/image-20240210211637850.png" /></p>
+<h1 id="5">5 思考题<a class="headerlink" href="#5" title="点击此处可置顶内容">&para;</a></h1>
+<h2 id="51-putc">5.1 <code>putc</code> 的特权切换<a class="headerlink" href="#51-putc" title="点击此处可置顶内容">&para;</a></h2>
+<p><strong>题目描述</strong></p>
+<p>使用 <code>putc</code> 函数输出一个字符 'a' 前后需要发生几次特权态切换，请将切换的状态和切换的原因一一列举出来。</p>
+<p><strong>解答</strong></p>
+<p>我们可以在一次输出的log信息中查找 <code>putc</code> 函数，并跟踪他的函数调用链：</p>
+<p><img alt="image-20240210211641140" src="../Lab6%EF%BC%9A%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8Cimg/image-20240210211641140.png" /></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Supervisor (priv == 01)                         Machine (priv == 11)
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    putc()
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>      |
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>  sbi_ecall()
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>      |
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>      +-----------------------ecall-----------------------+
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>                                                          |
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>                                                  _sbi_trap_entry()
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>                                                          |
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>                                                 _sbi_trap_handler()
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>                                                          |
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>                                                 _sbi_scall_handler()
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>                                                          |
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>                                                sbi_console_putchar()
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>                                                          |
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>      +-----------------------mret------------------------+
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>      |
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>    finish
+</span></code></pre></div>
+<p>可以看到一共是有两次进程切换。一次通过 <code>ecall</code> 从S态到M态，一次通过 <code>mret</code> 从M态到S态。</p>
+<h2 id="52">5.2 异常选择<a class="headerlink" href="#52" title="点击此处可置顶内容">&para;</a></h2>
+<p><strong>题目描述</strong></p>
+<p>如果流水线的 IF、ID、MEM 阶段都检测到了异常发生，应该选择哪个流水级的异常作为 trap_handler 处理的异常？请说说为什么这么选择。</p>
+<p><strong>解答</strong></p>
+<p>如果是在<strong>同一个时间</strong>的三个阶段检查到了异常发生，那么应该选择MEM阶段的。因为MEM阶段的指令在执行顺序上是最前面的，理论上当一条指令发生异常就会先处理异常，后面的指令都要等异常处理结束再运行，所以我们要选取三条指令中最早出现异常的指令，也就是MEM阶段的指令。</p>
+<p>如果是在<strong>同一条指令</strong>的三个阶段检测到了异常发生，那么应该处理IF阶段的。因为理论上一条指令在发生异常的时候就不会再运行了，需要先处理异常，但是因为流水线的设计，它还是会经历后面的阶段以及每个阶段的异常检测。但实际上我们需要处理的那个异常应该是最早发生的异常，也就是IF阶段的异常。</p>
+<h2 id="53-csr">5.3 CSR特权指令<a class="headerlink" href="#53-csr" title="点击此处可置顶内容">&para;</a></h2>
+<p><strong>题目描述</strong></p>
+<p>CSR 寄存器的读写操作如 <code>csrrw</code> 、<code>csrrwi</code>会不会引入新的 <code>stall</code> ？如果会，在你的实现中引入了哪些 <code>stall</code> ？可以用 <code>forward</code> 技术来减少这部分 <code>stall</code> 吗？</p>
+<p><strong>解答</strong></p>
+<p>读操作因为是组合电路，所以不会有 <code>stall</code> 产生。</p>
+<div class="language-verilog highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">module</span><span class="w"> </span><span class="n">CSRModule</span><span class="p">{</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="p">...</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="p">[</span><span class="mh">11</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">csr_addr_id</span><span class="p">,</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">63</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">csr_val_id</span><span class="p">,</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="p">...</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="p">};</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="kt">wire</span><span class="w"> </span><span class="p">[</span><span class="mh">4</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">compress_index</span><span class="o">=</span><span class="p">{</span><span class="n">csr_addr_id</span><span class="p">[</span><span class="mh">9</span><span class="p">],</span><span class="n">csr_addr_id</span><span class="p">[</span><span class="mh">6</span><span class="p">],</span><span class="n">csr_addr_id</span><span class="p">[</span><span class="mh">2</span><span class="o">:</span><span class="mh">0</span><span class="p">]};</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="k">assign</span><span class="w"> </span><span class="n">csr_val_id</span><span class="o">=</span><span class="n">compress</span><span class="p">[</span><span class="n">compress_index</span><span class="p">];</span>
+</span></code></pre></div>
+<p>写操作因为是和 <code>Regs</code> 模块一样的时钟下降沿的时序逻辑，所以会有一拍的 <code>stall</code> 产生的。但因为特权指令的格式和一般指令的格式是保持一致的，所以我们在译码正确之后就可以让他这条指令当作一条普通指令来跑，如果像 <code>csrrw</code> 、<code>csrrwi</code> 指令需要写回，也可以像普通的写回指令一样共用一套 <code>stall</code> 的检测和执行机制。所以不需要额外增加 <code>stall</code> 的处理。</p>
+<p>至于处理的话也可以像Regs一样用旁路的前递机制。检测数据冲突是否发生并且可以前递。</p>
+<h2 id="54">5.4 临别赠礼<a class="headerlink" href="#54" title="点击此处可置顶内容">&para;</a></h2>
+<p><strong>题目描述</strong></p>
+<p>可以为系统 II 的课改留下任何宝贵的心得体会和建议吗？（不记录分数，纯属用于吐槽）</p>
+<p><strong>解答</strong></p>
+<p>千言万语汇作五个字：”还是太简单。“</p>
+<p>另外实验指导里面好多地方都是直接复制去年的，痕迹很明显哈，记得找时间改改（比如今年的lab4是去年的lab5，导致很多地方出现指代不明的情况）</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../../Lab5/Lab5%EF%BC%9ARV64%20%E5%86%85%E6%A0%B8%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Lab5">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256l137.3-137.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Lab5
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../../../Machine%20Learning/" class="md-footer__link md-footer__link--next" aria-label="下一页: CS229 ML课程笔记">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                CS229 ML课程笔记
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ZJUCCnocc/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "toc.follow", "search.highlight", "search.share", "content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.path", "navigation.prune", "navigation.tabs"], "search": "../../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+        <script src="../../../../../../assets/javascripts/katex.js"></script>
+      
+        <script src="../../../../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="../../../../../../assets/javascripts/fireworks.js"></script>
+      
+        <script src="https://cdn.tonycrane.cc/utils/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../../../../assets/javascripts/glightbox.min.js"></script>
+      
+    
+  </body>
+</html>
